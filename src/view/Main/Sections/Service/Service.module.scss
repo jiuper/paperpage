@@ -1,0 +1,66 @@
+.service{
+  padding: 110px 0;
+  background: #F4F4F4;
+  background-size: cover;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: "Mulish", sans-serif;
+}
+.title{
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 120%;
+}
+.items{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+
+  .item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    height: 450px;
+    padding: 30px;
+    border-radius: 20px;
+
+    .caption{
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 150%;
+      color: #fff;
+    }
+    .list{
+
+      .list-item{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
+        color: #fff;
+          &::marker{
+            color: #63A38B;
+          }
+      }
+    }
+  }
+
+  .item_1{
+    background: url("../../../../shared/assests/service_one.png") no-repeat center center;
+
+  }
+  .item_2{
+    background: url("../../../../shared/assests/service_two.png")no-repeat center center;
+
+  }
+  .item_3{
+    background: url("../../../../shared/assests/service_three.png")no-repeat center center;
+
+  }
+}
+

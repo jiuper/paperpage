@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraLight.woff2') format('woff2') ,url('../assests/fonts/Mulish-ExtraLight.woff') format('woff');
+    font-weight: 1;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraLightItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-ExtraLightItalic.woff') format('woff');
+    font-weight: 1;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraLight.woff2') format('woff2'), url('../assests/fonts/Mulish-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraLightItalic.woff2') format('woff2') ,url('../assests/fonts/Mulish-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Light.woff2') format('woff2'), url('../assests/fonts/Mulish-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-LightItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Regular.woff2') format('woff2'), url('../assests/fonts/Mulish-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Italic.woff2') format('woff2'), url('../assests/fonts/Mulish-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Medium.woff2') format('woff2') ,url('../assests/fonts/Mulish-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-MediumItalic.woff2') format('woff2') ,url('../assests/fonts/Mulish-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-SemiBold.woff2') format('woff2') ,url('../assests/fonts/Mulish-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-SemiBoldItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Bold.woff2') format('woff2') ,url('../assests/fonts/Mulish-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-BoldItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraBold.woff2') format('woff2'), url('../assests/fonts/Mulish-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-ExtraBoldItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-Black.woff2') format('woff2'), url('../assests/fonts/Mulish-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mulish';
+    src: url('../assests/fonts/Mulish-BlackItalic.woff2') format('woff2'), url('../assests/fonts/Mulish-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    @include font-SegoeUI();
+
+    @include hidden-scrollbar()
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 24px;
+}

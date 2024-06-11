@@ -1,0 +1,14 @@
+.header{
+  max-width: 310px;
+  width: 100%;
+
+  .wrapper{
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .context-menu{
+      background: #828282;
+    }
+  }
+}

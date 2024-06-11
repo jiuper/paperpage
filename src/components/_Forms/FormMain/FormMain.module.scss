@@ -1,0 +1,78 @@
+.form-main{
+  background: url("../../../shared/assests/back-formMain.png") no-repeat center center;
+  border-radius: 20px;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Mulish", sans-serif;
+  padding: 60px 0 77px 55px;
+  .title{
+    margin-bottom: 55px;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 120%;
+    color: #fff;
+    max-width: 633px;
+    width: 100%;
+  }
+  .field-base{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 778px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .inputs{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .textarea{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 18px 26px;
+    background: #404146;
+    height: 99px;
+    &::placeholder{
+      color: #BDBDBD;
+    }
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    
+    .text{
+      display: flex;
+      gap: 15px;
+
+      .phone-wrapper{
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      .email-wrapper{
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      .link{
+        text-decoration: none;
+        color: #fff;
+        font-family: "Mulish", sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 120%;
+        cursor: pointer;
+      }
+    }
+  }
+}

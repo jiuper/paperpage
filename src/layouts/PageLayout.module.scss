@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  flex: 1 1;
+}
+.content{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@include media-max($screen-tablet +1 ){
+  .isDesktop{
+    display: none;
+  }
+}
+
+.wrapper-side{
+  flex-direction: row;
+}
