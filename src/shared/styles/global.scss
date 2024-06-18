@@ -113,7 +113,7 @@ body {
     padding: 0;
     width: 100%;
     @include font-SegoeUI();
-
+    font-family:Mulish, sans-serif;
     @include hidden-scrollbar()
 }
 

@@ -9,9 +9,6 @@ const nextConfig = {
     prependData: `@import "@/shared/styles/breakpoints.scss"; @import "@/shared/styles/mixins.scss"; @import "@/shared/styles/variables.scss"; `,
   },
   pageExtensions: ["page.tsx", "page.ts"],
-  images: {
-    domains: ["free-broker.io"],
-  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -38,15 +35,6 @@ const nextConfig = {
     });
 
     return config;
-  },
-  async redirects() {
-    return [
-      {
-        source: "/signup/:path*",
-        destination: "/account/new/:path*",
-        permanent: true,
-      },
-    ];
   },
 };
 

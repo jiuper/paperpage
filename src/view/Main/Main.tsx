@@ -1,23 +1,21 @@
-import cnBind from "classnames/bind";
-
+import type { Category } from "@/entities";
 import { PageLayout } from "@/layouts/PageLayout";
 import { About } from "@/view/Main/Sections/About/About";
 import { FormCons } from "@/view/Main/Sections/FormCons";
 import { Navigation } from "@/view/Main/Sections/Navigation";
+import { News } from "@/view/Main/Sections/News/News";
 import { Service } from "@/view/Main/Sections/Service";
 
-import styles from "./Main.module.scss";
+type MainProps = { category: Category[] };
 
-const cx = cnBind.bind(styles);
-export const Main = () => {
+export const Main = ({ category }: MainProps) => {
     return (
         <PageLayout>
-            <div className={cx("about-content")}>
-                <About />
-                <Navigation />
-                <Service />
-                <FormCons />
-            </div>
+            <About />
+            <Navigation category={category} />
+            <Service />
+            <FormCons />
+            <News />
         </PageLayout>
     );
 };

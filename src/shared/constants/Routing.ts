@@ -5,8 +5,8 @@ export interface IRouting {
 }
 export const Routes = {
     HOME: "/",
-    INFORMATION: "/information",
-    ADVANTAGES: "/advantages",
+    INFORMATION: "/",
+    ADVANTAGES: "/contacts",
     PEOPLE: "/people",
     ASSORTIMENT: "#",
     SERVICES: "#",

@@ -1,61 +1,92 @@
 import cnBind from "classnames/bind";
+import { useRouter } from "next/router";
 
+import type { Category } from "@/entities";
 import CARDS from "@/shared/assests/cards.png";
 import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
+import { ImgPreview } from "@/shared/ui/ImgPreview/ImgPreview";
 
 import styles from "./Navigation.module.scss";
 
 const cx = cnBind.bind(styles);
-export const Navigation = () => {
+type NavigationProps = { category: Category[] };
+export const Navigation = ({ category }: NavigationProps) => {
+    const router = useRouter();
+    const normalizeList =
+        category[1].papers.length < 3
+            ? category[1].papers?.push({
+                  description: "",
+                  name: "",
+                  applicationSphere: [],
+                  id: "",
+              })
+            : category[1].papers;
+
     return (
         <div className={cx("navigation")}>
             <div className={cx("wrapper", "container")}>
                 <div className={cx("content")}>
                     <div className={cx("top")}>
-                        <h2>Технические виды бумаг</h2>
+                        <h2>{category[0].name}</h2>
                         <div className={cx("items")}>
-                            <div className={cx("item")}>
-                                <h3>Калька</h3>
-                                <div className={cx("points")}>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
+                            {category[0].papers?.map((paper, i) => (
+                                <div key={i} className={cx("item")}>
+                                    <div className={cx("header")}>
+                                        <h3>{paper.name}</h3>
+                                        {paper.description ? (
+                                            <span className={cx("description")}>{paper.description}</span>
+                                        ) : null}
                                     </div>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
+                                    <div className={cx("points")}>
+                                        {paper.applicationSphere?.map((sphere, index) => (
+                                            <div key={index} className={cx("point")}>
+                                                <i className={cx("icon", "pi pi-check")} />
+                                                <span>{sphere}</span>
+                                            </div>
+                                        ))}
                                     </div>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
-                                    </div>
+                                    <Button
+                                        onClick={() => router.push(`/assortment/${paper.id}`)}
+                                        mode="green"
+                                        label="Смотреть"
+                                    />
+
+                                    <ImgPreview filesImg={paper.picture} />
                                 </div>
-                                <Button mode="green" label="Смотреть" />
-                            </div>
+                            ))}
                         </div>
                     </div>
                     <div className={cx("bottom")}>
-                        <h2>Технические виды бумаг</h2>
+                        <h2>{category[1].name}</h2>
                         <div className={cx("items")}>
-                            <div className={cx("item")}>
-                                <h3>Калька</h3>
-                                <div className={cx("points")}>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
+                            {category[1].papers?.map((paper, i) => (
+                                <div key={i} className={cx("item", paper.name === "" && "hidden")}>
+                                    <div className={cx("header")}>
+                                        <h3>{paper.name}</h3>
+                                        {paper.description ? (
+                                            <span className={cx("description")}>{paper.description}</span>
+                                        ) : null}
                                     </div>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
+
+                                    <div className={cx("points")}>
+                                        {paper.applicationSphere?.map((sphere, index) =>
+                                            sphere ? (
+                                                <div key={index} className={cx("point")}>
+                                                    <i className={cx("icon", "pi pi-check")} />
+                                                    <span>{sphere}</span>
+                                                </div>
+                                            ) : null,
+                                        )}
                                     </div>
-                                    <div className={cx("point")}>
-                                        <i className={cx("icon", "pi pi-check")} />
-                                        <span>Калька бумажная 40 гр, 52 гр, 60 гр, 80 гр</span>
-                                    </div>
+                                    <Button
+                                        mode="green"
+                                        label="Смотреть"
+                                        className={cx(paper.name === "" && "hidden")}
+                                    />
+                                    <ImgPreview filesImg={paper.picture} />
                                 </div>
-                                <Button mode="green" label="Смотреть" />
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

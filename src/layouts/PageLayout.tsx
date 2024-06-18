@@ -3,6 +3,7 @@ import React from "react";
 import cnBind from "classnames/bind";
 import Head from "next/head";
 
+import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 import styles from "./PageLayout.module.scss";
@@ -27,6 +28,7 @@ export const PageLayout = ({ children, title }: PageLayoutProps) => {
                 <main className={cx("main")}>
                     <div className={cx("content")}>{children}</div>
                 </main>
+                <Footer />
             </div>
         </>
     );

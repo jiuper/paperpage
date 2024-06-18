@@ -1,11 +1,8 @@
 import cnBind from "classnames/bind";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
-import logo from "@/shared/assests/image 3.png";
+import { Logo } from "@/components/Logo";
 import type { IRouting } from "@/shared/constants/Routing";
-import { Routes } from "@/shared/constants/Routing";
-import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./SideBar.module.scss";
 
@@ -18,18 +15,10 @@ export type TSideBar = {
     classNames?: string;
 };
 export const SideBar = ({ onMouseLeave, onMouseEnter, items, hidden, classNames }: TSideBar) => {
-    const router = useRouter();
-
     return (
         <div className={cx("side-bar", classNames)}>
             <div className={cx("wrapper-side")}>
-                <div className={cx("side-bar__logo", { hidden })} onClick={() => router.push(Routes.HOME)}>
-                    <CustomImage src={logo} alt="tpaper" className={cx("logo")} />
-                    <div className={cx("side-bar__text")}>
-                        <span className={cx("title")}>ТЕХНИЧЕСКАЯ БУМАГА</span>
-                        <span className={cx("label")}>Работаем с 2013 года</span>
-                    </div>
-                </div>
+                <Logo hidden={hidden} />
                 <div className={cx("side-bar__links")}>
                     {items.map((link) =>
                         link.mode ? (
