@@ -10,7 +10,7 @@ import { CustomImage } from "@/shared/ui/CustomImage";
 import styles from "./About.module.scss";
 
 const cx = cnBind.bind(styles);
-const arrList = [
+export const arrList = [
     { icon: DELIVERY as string, caption: "Доставка", desc: "Своевременное исполнение заказа и быстрая доставка" },
     {
         icon: DEAL as string,

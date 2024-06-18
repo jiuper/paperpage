@@ -14,13 +14,14 @@ const cx = cnBind.bind(styles);
 type AssortCardsProps = {
     cargo: GetCargoDto[];
     title: string;
+    handleOrder?: (val: string) => void;
 };
-export const AssortCards = ({ cargo, title }: AssortCardsProps) => {
+export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => {
     const router = useRouter();
     const [products] = useState(cargo);
 
-    const searchBodyTemplate = () => {
-        return <Button mode="green" label="Заказать" />;
+    const searchBodyTemplate = (data: GetCargoDto) => {
+        return <Button mode="green" label="Заказать" onClick={() => handleOrder?.(data?.title ?? "")} />;
     };
     const columns = [
         { field: "code", header: "Фото" },
@@ -45,7 +46,12 @@ export const AssortCards = ({ cargo, title }: AssortCardsProps) => {
                 tableStyle={{ minWidth: "50rem" }}
             >
                 {columns.map((col) => (
-                    <Column key={col.field} field={col.field} body={col.Body} header={col.header} />
+                    <Column
+                        key={col.field}
+                        field={col.field}
+                        body={(data: GetCargoDto) => col.Body?.(data)}
+                        header={col.header}
+                    />
                 ))}
             </DataTable>
         </div>

@@ -39,3 +39,11 @@ export type PicturesShortInfo = {
     id?: string;
     type?: PictureType;
 };
+
+export type GetNewsDto = {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+    pictureId: string;
+};

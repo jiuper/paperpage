@@ -1,0 +1,50 @@
+.form-product{
+  background: url("../../../shared/assests/form-product.png") no-repeat center center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 60px 55px;
+
+  .field{
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    font-family: "Mulish", sans-serif;
+  }
+
+  .title{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h2{
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 120%;
+      color: #fff;
+    }
+    span{
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 150%;
+      color: #fff;
+    }
+  }
+  .items{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .item{
+      width: 100% !important;
+    }
+  }
+  .inputs{
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+
+    .submit{
+      max-width: 250px;
+      width: 100% !important;
+    }
+  }
+}

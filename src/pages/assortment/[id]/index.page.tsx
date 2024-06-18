@@ -15,6 +15,7 @@ export default function IndexPage({
     weights: number[];
     id: string;
 }) {
+    console.log(cargo);
     return <Assortment paperId={id} paper={paper} cargo={cargo} />;
 }
 export const getStaticPaths: GetStaticPaths = async () => {

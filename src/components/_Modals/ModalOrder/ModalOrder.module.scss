@@ -1,0 +1,55 @@
+.modal-order{
+  [data-pc-section="headertitle"]{
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 120%;
+  }
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 24px
+}
+  .fields{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .inputs{
+    width: 100%;
+    display: flex;
+    gap: 14px;
+
+    .item{
+      width: 100% !important;
+    }
+  }
+  .item-number{
+    &[data-pc-name="inputnumber"]{
+      width: 50px;
+    }
+    [data-pc-name="inputtext"]{
+      width: 50px;
+      border: 1px solid #D3D3D3;
+    }
+    [data-pc-section="decrementbutton"],
+    [data-pc-section="incrementbutton"]{
+      color: #828282;
+      background: #ffffff;
+      border: 1px solid #D3D3D3;
+    }
+  }
+  .footer{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    .title{
+      color: #828282;
+    }
+    .policy,
+    .submit{
+      max-width: 316px;
+      width: 100%;
+    }
+  }
+}

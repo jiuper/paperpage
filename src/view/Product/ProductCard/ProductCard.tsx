@@ -9,8 +9,9 @@ import styles from "./ProductCard.module.scss";
 const cx = cnBind.bind(styles);
 type ProductCardProps = {
     product: GetCargoDto;
+    handleOrder: (val: string) => void;
 };
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product, handleOrder }: ProductCardProps) => {
     return (
         <div className={cx("product-card")}>
             <div className={cx("header")}>
@@ -38,10 +39,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                     <div className={cx("footer")}>
                         <h3>Цена по запросу</h3>
                         <div className={cx("buttons")}>
-                            <Button mode="green" label="Быстрый заказ" />
+                            <Button
+                                onClick={() => handleOrder(product?.title ?? "")}
+                                mode="green"
+                                label="Быстрый заказ"
+                            />
                             <Button mode="white-green" label="Оставить заявку" />
                         </div>
-
                     </div>
                 </div>
             </div>

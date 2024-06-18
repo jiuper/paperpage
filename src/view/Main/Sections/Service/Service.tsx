@@ -1,6 +1,8 @@
 import { useState } from "react";
 import cnBind from "classnames/bind";
+import { useRouter } from "next/router";
 
+import { PageLayout } from "@/layouts/PageLayout";
 import { Button } from "@/shared/ui/Button";
 
 import styles from "./Service.module.scss";
@@ -27,44 +29,49 @@ const arrList = [
     },
 ];
 export const Service = () => {
+    const router = useRouter();
     const [isHovering, setIsHovering] = useState(false);
     const [id, setId] = useState(0);
     const handleMouseEnter = (id: number) => {
         setIsHovering(true);
         setId(id);
     };
+    const handleClick = (id: number) => void router.push(`/services/${id}`);
 
     const handleMouseLeave = () => setIsHovering(false);
 
     return (
-        <div className={cx("service")}>
-            <div className={cx("wrapper", "container")}>
-                <h2 className={cx("title")}>Наши услуги</h2>
-                <div className={cx("items")}>
-                    {arrList.map((el, i) => (
-                        <div
-                            className={cx("item", `item_${i + 1}`)}
-                            onMouseEnter={() => handleMouseEnter(i)}
-                            onMouseLeave={handleMouseLeave}
-                            key={el.caption}
-                        >
-                            <span className={cx("caption")}>{el.caption}</span>
-                            {isHovering && id === i && (
-                                <>
-                                    <ul className={cx("list")}>
-                                        {el.listItem.map((elem, i) => (
-                                            <li className={cx("list-item")} key={i}>
-                                                {elem}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <Button mode="green" label="Подробнее" />
-                                </>
-                            )}
-                        </div>
-                    ))}
+
+            <div className={cx("service")}>
+                <div className={cx("wrapper", "container")}>
+                    <h2 className={cx("title")}>Наши услуги</h2>
+                    <div className={cx("items")}>
+                        {arrList.map((el, i) => (
+                            <div
+                                className={cx("item", `item_${i + 1}`)}
+                                onMouseEnter={() => handleMouseEnter(i)}
+                                onMouseLeave={handleMouseLeave}
+                                onClick={() => handleClick(i + 1)}
+                                key={el.caption}
+                            >
+                                <span className={cx("caption")}>{el.caption}</span>
+                                {isHovering && id === i && (
+                                    <>
+                                        <ul className={cx("list")}>
+                                            {el.listItem.map((elem, i) => (
+                                                <li className={cx("list-item")} key={i}>
+                                                    {elem}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                        <Button mode="green" label="Подробнее" />
+                                    </>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+
     );
 };

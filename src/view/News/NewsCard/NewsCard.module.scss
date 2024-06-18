@@ -1,0 +1,46 @@
+.news-card{
+  padding: 110px 0;
+
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .caption{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      border-radius: 3px;
+      padding: 4px 10px;
+      background: #63A38B;
+      color: #fff;
+    }
+    .date{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      color: #828282;
+    }
+  }
+  .title{
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 100%;
+  }
+  .description{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    color: #48494F;
+    margin: 0;
+  }
+  .image{
+    width: 100%;
+    object-fit: cover;
+  }
+}

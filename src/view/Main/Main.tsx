@@ -1,21 +1,21 @@
-import type { Category } from "@/entities";
+import type { Category, GetNewsDto } from "@/entities";
 import { PageLayout } from "@/layouts/PageLayout";
 import { About } from "@/view/Main/Sections/About/About";
 import { FormCons } from "@/view/Main/Sections/FormCons";
 import { Navigation } from "@/view/Main/Sections/Navigation";
-import { News } from "@/view/Main/Sections/News/News";
+import { NewsList } from "@/view/Main/Sections/News/NewsList";
 import { Service } from "@/view/Main/Sections/Service";
 
-type MainProps = { category: Category[] };
+type MainProps = { category: Category[]; news: GetNewsDto[] };
 
-export const Main = ({ category }: MainProps) => {
+export const Main = ({ category, news }: MainProps) => {
     return (
         <PageLayout>
             <About />
             <Navigation category={category} />
             <Service />
             <FormCons />
-            <News />
+            <NewsList news={news} />
         </PageLayout>
     );
 };
