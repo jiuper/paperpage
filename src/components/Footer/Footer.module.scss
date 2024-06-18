@@ -1,0 +1,80 @@
+.footer{
+  background: #48494F;
+  padding: 50px 0;
+
+  .wrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    .copyright{
+      display: flex;
+      flex-direction: column;
+      span{
+        font-family: Mulish, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        color: #fff;
+      }
+    }
+  }
+  .right{
+    display: flex;
+    gap: 150px;
+  }
+  .nav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    a{
+      font-family: Mulish, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  .contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 295px;
+    width: 100%;
+    .phone{
+      font-family: Mulish, sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 120%;
+      color: #fff;
+    }
+    .work-time{
+      font-family: Mulish, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      color: #fff;
+      span{
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 120%;
+      }
+    }
+    .address,
+    .gps,
+    .email{
+      font-family: Mulish, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+      color: #fff;
+    }
+  }
+}

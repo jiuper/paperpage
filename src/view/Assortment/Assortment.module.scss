@@ -1,0 +1,20 @@
+.assortment{
+
+  .items{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 80px 0 110px 0;
+
+    h2{
+      font-family: "Mulish", sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 120%;
+      color: #000;
+    }
+  }
+  .form{
+    padding: 0 24px 110px 24px;
+  }
+}

@@ -1,0 +1,75 @@
+.header{
+  padding: 110px 0;
+  background: #F4F4F4;
+  h1{
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  .map{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contacts{
+    display: flex;
+    gap: 20px;
+  }
+  .phone{
+    display: flex;
+    flex-direction: column;
+    font-family: "Mulish", sans-serif;
+    color: #000;
+    flex: 1 0 auto;
+    span{
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 120%;
+    }
+    .work-time{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      span{
+        font-weight: 700;
+        font-size: 18px;
+      }
+    }
+  }
+  .email{
+    display: flex;
+    flex-direction: column;
+    font-family: "Mulish", sans-serif;
+    color: #000;
+    flex: 1 0 auto;
+    span:first-child{
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 120%;
+    }
+    span:last-child{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+    }
+  }
+  .location-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: "Mulish", sans-serif;
+    color: #000;
+    .gps,
+    .address{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 160%;
+    }
+  }
+}
+.form{
+  padding: 110px 24px;
+}

@@ -1,0 +1,18 @@
+.news{
+  padding-bottom: 110px;
+}
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.caption{
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 120%;
+}
+.content{
+  display: flex;
+  gap: 27px;
+}

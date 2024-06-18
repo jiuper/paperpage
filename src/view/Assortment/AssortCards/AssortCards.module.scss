@@ -1,0 +1,28 @@
+.assort-cards{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h3{
+    font-family: "Mulish", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 140%;
+    color: #48494F;
+  }
+  [data-pc-section="headercell"]{
+    background: none;
+    border: 1px solid #d3d3d3;
+    &:first-child{
+      border-top-left-radius: 10px;
+    }
+    &:nth-child(1n + 2){
+      border-left: none;
+    }
+    &:last-child{
+      border-top-right-radius: 10px;
+    }
+
+}
+
+}

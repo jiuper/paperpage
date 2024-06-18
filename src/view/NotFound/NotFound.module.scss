@@ -1,0 +1,13 @@
+.not-found{
+  background: url("../../shared/assests/notFound.png") no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button{
+    margin-top: 450px;
+  }
+}
