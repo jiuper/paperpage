@@ -7,6 +7,7 @@ import { DataTable } from "primereact/datatable";
 
 import type { GetCargoDto } from "@/entities";
 import { Button } from "@/shared/ui/Button";
+import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./AssortCards.module.scss";
 
@@ -18,14 +19,24 @@ type AssortCardsProps = {
 };
 export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => {
     const router = useRouter();
-    const [products] = useState(cargo);
 
-    const searchBodyTemplate = (data: GetCargoDto) => {
+    const searchBodyTemplate = (data: GetCargoDto, index: string) => {
         return <Button mode="green" label="Заказать" onClick={() => handleOrder?.(data?.title ?? "")} />;
     };
+    const imageTemplate = (data: GetCargoDto, index: string) => {
+        return (
+            <CustomImage
+                width={134}
+                height={90}
+                src={`https://papers-api-4meo.onrender.com/picture/${data.pictures[+index] ?? "0"}`}
+                alt="default"
+            />
+        );
+    };
+
     const columns = [
-        { field: "code", header: "Фото" },
-        { field: "name", header: "Фактура" },
+        { field: "0", header: "Фото", Body: imageTemplate },
+        { field: "1", header: "Фактура", Body: imageTemplate },
         { field: "shortDescription", header: "Описание" },
         { field: "articleNumber", header: "Артикул" },
         { field: "packageQuantity", header: "Кол-во в упаковке" },
@@ -42,14 +53,14 @@ export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => 
             <DataTable
                 selectionMode="single"
                 onSelectionChange={(e) => onRowSelect(e)}
-                value={products}
+                value={cargo}
                 tableStyle={{ minWidth: "50rem" }}
             >
                 {columns.map((col) => (
                     <Column
                         key={col.field}
                         field={col.field}
-                        body={(data: GetCargoDto) => col.Body?.(data)}
+                        body={col.Body ?(data: GetCargoDto, { field }) => col.Body?.(data, field) : null}
                         header={col.header}
                     />
                 ))}

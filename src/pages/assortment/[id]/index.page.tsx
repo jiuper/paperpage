@@ -15,8 +15,6 @@ export default function IndexPage({
     weights: number[];
     id: string;
 }) {
-    console.log(cargo);
-
     return <Assortment paperId={id} paper={paper} cargo={cargo} />;
 }
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -38,7 +36,8 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext)
 
     const resGargo = await axios<GetCargoDto[]>("https://papers-api-4meo.onrender.com/cargo");
     const resPaper = await axios<GetPaperDto[]>("https://papers-api-4meo.onrender.com/paper");
-    // const resWeights = await axios.get<number[]>(`https://papers-api-4meo.onrender.com/paper/cargo/weights`, {params: id,});
+    // const resWeights = await axios(`https://papers-api-4meo.onrender.com/paper/cargo/weights${paperId}`);
+
     const cargo = resGargo.data;
     const paper = resPaper.data;
     const weights: never[] = [];

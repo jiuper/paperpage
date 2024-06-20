@@ -1,6 +1,7 @@
 import cnBind from "classnames/bind";
 import Link from "next/link";
 import { Menubar } from "primereact/menubar";
+import type { MenuItem } from "primereact/menuitem";
 
 import { Logo } from "@/components/Logo";
 
@@ -12,16 +13,12 @@ type HeaderProps = {
     classNames?: string;
 };
 export const Header = ({ hidden, classNames }: HeaderProps) => {
-    const items = [
+    const items: MenuItem[] = [
         {
             label: "Информация",
+            url: "/",
         },
-        {
-            label: "Преимущества",
-        },
-        {
-            label: "Люди",
-        },
+
         {
             label: "Ассортимент",
             items: [
@@ -36,7 +33,6 @@ export const Header = ({ hidden, classNames }: HeaderProps) => {
                 },
                 {
                     label: "Подпергамент",
-
                 },
                 {
                     label: "Для упаковки жировлагосодержа-щих продуктов",
@@ -49,14 +45,21 @@ export const Header = ({ hidden, classNames }: HeaderProps) => {
             items: [
                 {
                     label: "Технические виды услуг",
+                    url: "/services/1",
                 },
                 {
                     label: "Полиграфические услуги",
+                    url: "/services/2",
                 },
                 {
                     label: "Типографские услуги",
+                    url: "/services/3",
                 },
             ],
+        },
+        {
+            label: "Контакты",
+            url: "/contacts",
         },
     ];
 

@@ -18,7 +18,7 @@ export const NewsList = ({ news, title = "Новости" }: { news: GetNewsDto[
                         <NewsCard
                             id={item.id}
                             key={item.title}
-                            src={IMG.src}
+                            src={item.pictureId}
                             alt={item.title}
                             date={item.date}
                             title={item.title}

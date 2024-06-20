@@ -18,7 +18,13 @@ type NewsCardProps = {
 export const NewsCard = ({ date, title, text, src, alt, id }: NewsCardProps) => {
     return (
         <div className={cx("news-card")}>
-            <CustomImage width={400} height={250} className={cx("image")} src={src} alt={alt} />
+            <CustomImage
+                width={400}
+                height={250}
+                className={cx("image")}
+                src={`https://papers-api-4meo.onrender.com/picture/${src ?? "0"}`}
+                alt={alt}
+            />
             <span>{date}</span>
             <h3>{title}</h3>
             <div className={cx("text")}>

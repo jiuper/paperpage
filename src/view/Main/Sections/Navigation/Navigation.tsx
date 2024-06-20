@@ -80,6 +80,7 @@ export const Navigation = ({ category }: NavigationProps) => {
                                         )}
                                     </div>
                                     <Button
+                                        onClick={() => router.push(`/assortment/${paper.id}`)}
                                         mode="green"
                                         label="Смотреть"
                                         className={cx(paper.name === "" && "hidden")}

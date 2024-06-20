@@ -32,12 +32,7 @@ export type GetCargoDto = {
     winding?: string;
     packagingType?: string;
     paperId: string;
-    pictures?: PicturesShortInfo[];
-};
-
-export type PicturesShortInfo = {
-    id?: string;
-    type?: PictureType;
+    pictures: string[];
 };
 
 export type GetNewsDto = {

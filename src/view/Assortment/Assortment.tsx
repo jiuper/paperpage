@@ -32,7 +32,7 @@ export const Assortment = ({ cargo, paper, paperId }: AssortmentProps) => {
 
     return (
         <PageLayout>
-            <div className={cx("assortment")}>
+            <div className={cx("assortment")} id="assortiment">
                 <NavBarAssort tabsList={paper} tab={tab.text} onChangeTab={handleChangeTab} />
                 <div className={cx("items", "container")}>
                     <h2>{tab.text}</h2>

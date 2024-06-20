@@ -1,4 +1,5 @@
 import cnBind from "classnames/bind";
+import { Carousel } from "primereact/carousel";
 
 import type { GetCargoDto } from "@/entities";
 import { Button } from "@/shared/ui/Button";
@@ -10,12 +11,57 @@ const cx = cnBind.bind(styles);
 type ProductCardProps = {
     product: GetCargoDto;
     handleOrder: (val: string) => void;
+    handleCallback: () => void;
 };
-export const ProductCard = ({ product, handleOrder }: ProductCardProps) => {
+export const ProductCard = ({ product, handleOrder, handleCallback }: ProductCardProps) => {
+    const responsiveOptions = [
+        {
+            breakpoint: "1400px",
+            numVisible: 1,
+            numScroll: 1,
+        },
+        {
+            breakpoint: "1199px",
+            numVisible: 1,
+            numScroll: 1,
+        },
+        {
+            breakpoint: "767px",
+            numVisible: 1,
+            numScroll: 1,
+        },
+        {
+            breakpoint: "575px",
+            numVisible: 1,
+            numScroll: 1,
+        },
+    ];
+    const productTemplate = (product: string) => {
+        return (
+            <CustomImage
+                className={cx("image")}
+                src={`https://papers-api-4meo.onrender.com/picture/${product ?? "0"}`}
+                alt="default"
+                width={400}
+                height={500}
+            />
+        );
+    };
+
     return (
         <div className={cx("product-card")}>
             <div className={cx("header")}>
-                <CustomImage className={cx("image")} src="" alt="" />
+                <Carousel
+                    value={product.pictures}
+                    responsiveOptions={responsiveOptions}
+                    numVisible={1}
+                    numScroll={1}
+                    itemTemplate={productTemplate}
+                    showIndicators={false}
+                    className={cx("carousel")}
+                    prevIcon={cx("pi pi-arrow-left")}
+                    nextIcon={cx("pi pi-arrow-right")}
+                />
                 <div className={cx("info")}>
                     <h3>{product.title}</h3>
                     <span className={cx("article")}>Артикул: {product.articleNumber}</span>
@@ -44,7 +90,7 @@ export const ProductCard = ({ product, handleOrder }: ProductCardProps) => {
                                 mode="green"
                                 label="Быстрый заказ"
                             />
-                            <Button mode="white-green" label="Оставить заявку" />
+                            <Button onClick={handleCallback} mode="white-green" label="Оставить заявку" />
                         </div>
                     </div>
                 </div>

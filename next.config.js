@@ -9,6 +9,17 @@ const nextConfig = {
     prependData: `@import "@/shared/styles/breakpoints.scss"; @import "@/shared/styles/mixins.scss"; @import "@/shared/styles/variables.scss"; `,
   },
   pageExtensions: ["page.tsx", "page.ts"],
+  reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'papers-api-4meo.onrender.com',
+        port: '',
+        pathname: '/picture/**',
+      },
+    ],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

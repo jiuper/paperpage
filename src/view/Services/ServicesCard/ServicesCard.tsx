@@ -12,8 +12,9 @@ export interface ServiceCardProps {
     image?: StaticImageData;
     title?: string;
     description?: string;
+    onClick?: () => void;
 }
-export const ServicesCard = ({ image, title, description }: ServiceCardProps) => {
+export const ServicesCard = ({ image, title, description, onClick }: ServiceCardProps) => {
     return (
         <div className={cx("services-card")}>
             <CustomImage className={cx("image")} src={image ?? ""} alt="title" />
@@ -21,7 +22,7 @@ export const ServicesCard = ({ image, title, description }: ServiceCardProps) =>
                 <h3>{title}</h3>
                 <p>{description}</p>
             </div>
-            <Button mode="white-green" label="Заказать услугу" />
+            <Button onClick={onClick} mode="white-green" label="Заказать услугу" />
         </div>
     );
 };

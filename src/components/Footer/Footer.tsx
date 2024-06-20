@@ -1,7 +1,10 @@
+import * as React from "react";
 import cnBind from "classnames/bind";
 import Link from "next/link";
 
+import { ModalCallback } from "@/components/_Modals/ModalCallback";
 import { Logo } from "@/components/Logo";
+import { useBooleanState } from "@/shared/hooks";
 import { Button } from "@/shared/ui/Button";
 
 import styles from "./Footer.module.scss";
@@ -9,12 +12,13 @@ import styles from "./Footer.module.scss";
 const cx = cnBind.bind(styles);
 const navList = [
     { title: "Информация", href: "/" },
-    { title: "Преимущества", href: "/" },
-    { title: "Люди", href: "/" },
-    { title: "Ассортимент", href: "/" },
-    { title: "Услуги", href: "/" },
+    { title: "Ассортимент", href: "#assortiment" },
+    { title: "Услуги", href: "#service" },
+    { title: "Контакты", href: "/cotacts" },
 ];
 export const Footer = () => {
+    const [isOpen, onOpen, onClose] = useBooleanState(false);
+
     return (
         <footer className={cx("footer")}>
             <div className={cx("wrapper", "container")}>
@@ -24,7 +28,7 @@ export const Footer = () => {
                         <span>© 2014 ООО &quot;Техническая бумага-СПб&quot;</span>
                         <span>Все права защищены.</span>
                     </div>
-                    <Button mode="white" label="Написать руководителю" />
+                    <Button onClick={onOpen} mode="white" label="Написать руководителю" />
                 </div>
                 <div className={cx("right")}>
                     <div className={cx("nav")}>
@@ -50,6 +54,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
+            <ModalCallback isOpen={isOpen} onClose={onClose} />
         </footer>
     );
 };

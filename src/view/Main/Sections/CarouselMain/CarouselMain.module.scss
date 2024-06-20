@@ -1,0 +1,28 @@
+.container{
+  background: url("../../../../shared/assests/sliderMain/slide1.png") no-repeat center center;
+  background-size: cover;
+}
+
+.carousel{
+  [data-pc-section="container"]{
+    position: relative;
+  }
+  [data-pc-section="previousbutton"]{
+    left: 10%;
+    z-index: 1;
+    top: 87%;
+    color:#fff;
+    border-radius: 25%;
+    border: 1px solid #fff;
+    position: absolute;
+  }
+  [data-pc-section="nextbutton"]{
+    z-index: 1;
+    right: 10%;
+    top: 87%;
+    color:#fff;
+    border-radius: 25%;
+    border: 1px solid #fff;
+    position: absolute;
+  }
+}
