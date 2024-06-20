@@ -1,5 +1,8 @@
 .header{
   width: 100%;
+  position: fixed;
+  background: #48494F;
+  z-index: 10;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
   .wrapper{
@@ -28,9 +31,16 @@
     &[data-pc-name="menubar"]{
       background: none;
       border: none;
+
     }
       [data-pc-section="submenu"]{
         width: 250px;
+        background: #48494F;
+      }
+      [data-pc-section="submenuicon"],
+      [data-pc-section="label"]{
+        color: #ffffff;
+        font-family: Mulish, sans-serif;
       }
     }
 
@@ -39,7 +49,7 @@
       font-weight: 500;
       font-size: 18px;
       line-height: 140%;
-      color: #000000;
+      color: #ffffff;
       text-decoration: none;
     }
   }
@@ -52,7 +62,7 @@
 
     a{
       text-decoration: none;
-      color: #000000;
+      color: #ffffff;
     }
 
 
@@ -65,7 +75,7 @@
       font-weight: 500;
       font-size: 18px;
       line-height: 140%;
-      border-bottom: 1px dashed #000;
+      border-bottom: 1px dashed #ffffff;
     }
   }
 }

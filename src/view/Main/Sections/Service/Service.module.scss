@@ -14,11 +14,13 @@
   font-size: 46px;
   line-height: 120%;
 }
+
 .items{
   display: flex;
   justify-content: space-between;
   gap: 30px;
   align-items: center;
+  transition: 0.3s all;
 
   .item{
     display: flex;
@@ -29,6 +31,7 @@
     height: 450px;
     padding: 30px;
     border-radius: 20px;
+    transition: 0.3s all;
 
     .caption{
       font-weight: 700;
@@ -37,7 +40,7 @@
       color: #fff;
     }
     .list{
-
+      height: 75%;
       .list-item{
         font-weight: 500;
         font-size: 18px;
@@ -47,6 +50,15 @@
             color: #63A38B;
           }
       }
+    }
+    .show-card{
+      height: 100%;
+      transition: 0.3s all;
+    }
+    .hide-card{
+      overflow: hidden;
+      height: 10px;
+      transition: 0.3s all;
     }
   }
 

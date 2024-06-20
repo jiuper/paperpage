@@ -1,18 +1,81 @@
+
 .container{
   background: url("../../../../shared/assests/sliderMain/slide1.png") no-repeat center center;
   background-size: cover;
+  width: 100%;
+  height: 920px;
+  padding: 56px 0px;
 }
+.content{
+  display: flex;
+  flex-direction: column;
+  max-width: 1043px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 0 24px;
+  gap: 28px;
+  color: #fff;
+  align-items: flex-start;
+  font-family: "Mulish", sans-serif;
+  margin-top: 80px;
 
+
+  h1{
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+  }
+  span{
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 150%;
+  }
+}
+.list{
+  display: flex;
+  gap: 40px;
+  .item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
 .carousel{
+  [data-pc-section="content"]{
+    position: relative;
+  }
   [data-pc-section="container"]{
     position: relative;
   }
-  [data-pc-section="previousbutton"]{
-    left: 10%;
+  [data-pc-section="indicators"]{
+    left: 14%;
     z-index: 1;
     top: 87%;
     color:#fff;
     border-radius: 25%;
+    position: absolute;
+  }
+
+    [data-p-highlight="true"]{
+      [data-pc-section="indicatorbutton"]{
+        background-color: #63A38B;
+        width: 60px;
+      }
+    }
+
+  [data-pc-section="indicatorbutton"]{
+    height: 3px;
+  }
+  [data-pc-section="previousbutton"]{
+    right: 18%;
+    z-index: 1;
+    top: 87%;
+    color:#fff;
+    width: 80px;
+    border-radius: 38%;
+    height: 54px;
     border: 1px solid #fff;
     position: absolute;
   }
@@ -21,7 +84,9 @@
     right: 10%;
     top: 87%;
     color:#fff;
-    border-radius: 25%;
+    width: 80px;
+    border-radius: 38%;
+    height: 54px;
     border: 1px solid #fff;
     position: absolute;
   }

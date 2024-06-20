@@ -24,7 +24,7 @@ export const Navigation = ({ category }: NavigationProps) => {
             : category[1].papers;
 
     return (
-        <div className={cx("navigation")}>
+        <div className={cx("navigation")} id="assortiment">
             <div className={cx("wrapper", "container")}>
                 <div className={cx("content")}>
                     <div className={cx("top")}>
@@ -41,7 +41,7 @@ export const Navigation = ({ category }: NavigationProps) => {
                                     <div className={cx("points")}>
                                         {paper.applicationSphere?.map((sphere, index) => (
                                             <div key={index} className={cx("point")}>
-                                                <i className={cx("icon", "pi pi-check")} />
+                                                <i className={cx("icon", "pi pi-check")} style={{ color: "#63A38B" }} />
                                                 <span>{sphere}</span>
                                             </div>
                                         ))}
@@ -73,7 +73,7 @@ export const Navigation = ({ category }: NavigationProps) => {
                                         {paper.applicationSphere?.map((sphere, index) =>
                                             sphere ? (
                                                 <div key={index} className={cx("point")}>
-                                                    <i className={cx("icon", "pi pi-check")} />
+                                                    <i className={cx("icon", "pi pi-check")} style={{ color: "#63A38B" }} />
                                                     <span>{sphere}</span>
                                                 </div>
                                             ) : null,

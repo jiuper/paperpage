@@ -42,7 +42,15 @@
     flex: 1 1;
     position: relative;
     height: 450px;
-
+    transition: 0.3s all;
+    &:hover{
+      background:#dcdcda;
+      transition: 0.3s all;
+      button{
+        opacity:1;
+        transition: 0.3s all;
+      }
+    }
     .header{
       display: flex;
       flex-direction: column;
@@ -86,6 +94,7 @@
       }
     }
     button{
+      opacity: 0;
       z-index: 1;
     }
   }

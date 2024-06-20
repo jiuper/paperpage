@@ -24,18 +24,23 @@ export const Header = ({ hidden, classNames }: HeaderProps) => {
             items: [
                 {
                     label: "Калька",
+                    url: "/assortment/17826f6b-14de-4815-83d8-b092c7381946",
                 },
                 {
                     label: "Ватман в листах",
+                    url: "/assortment/870cd1ef-b2c8-4329-8deb-5793b5499674",
                 },
                 {
                     label: "Бумага-крафт",
+                    url: "/assortment/8fa5219a-4da3-4c9e-8060-64b67bc1c0fa",
                 },
                 {
                     label: "Подпергамент",
+                    url: "/assortment/79ea5405-125a-4f7b-82a8-e1628870d920",
                 },
                 {
                     label: "Для упаковки жировлагосодержа-щих продуктов",
+                    url: "/assortment/ad30ecbb-6916-45e7-92d8-f266133d9891",
                 },
             ],
         },
@@ -66,7 +71,7 @@ export const Header = ({ hidden, classNames }: HeaderProps) => {
     return (
         <header className={cx("header")}>
             <div className={cx("wrapper")}>
-                <Logo classNameLabel={cx("logo-label")} />
+                <Logo />
                 <div className={cx("nav")}>
                     <Menubar model={items} className={cx("menu")} />
                 </div>

@@ -9,7 +9,6 @@ const nextConfig = {
     prependData: `@import "@/shared/styles/breakpoints.scss"; @import "@/shared/styles/mixins.scss"; @import "@/shared/styles/variables.scss"; `,
   },
   pageExtensions: ["page.tsx", "page.ts"],
-  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

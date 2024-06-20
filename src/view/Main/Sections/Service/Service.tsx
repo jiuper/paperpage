@@ -53,18 +53,17 @@ export const Service = () => {
                             key={el.caption}
                         >
                             <span className={cx("caption")}>{el.caption}</span>
-                            {isHovering && id === i && (
-                                <>
-                                    <ul className={cx("list")}>
-                                        {el.listItem.map((elem, i) => (
-                                            <li className={cx("list-item")} key={i}>
-                                                {elem}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <Button mode="green" label="Подробнее" />
-                                </>
-                            )}
+
+                            <div className={cx(isHovering && id === i ? "show-card" : "hide-card")}>
+                                <ul className={cx("list")}>
+                                    {el.listItem.map((elem, i) => (
+                                        <li className={cx("list-item")} key={i}>
+                                            {elem}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Button mode="green" label="Подробнее" />
+                            </div>
                         </div>
                     ))}
                 </div>

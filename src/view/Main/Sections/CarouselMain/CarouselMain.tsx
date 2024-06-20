@@ -1,6 +1,8 @@
 import cnBind from "classnames/bind";
+import { useRouter } from "next/router";
 import { Carousel } from "primereact/carousel";
 
+import { Button } from "@/shared/ui/Button";
 import type { CarouselMainProps } from "@/view/Main/Sections/CarouselMain/constants";
 import { itemsCarouselMain } from "@/view/Main/Sections/CarouselMain/constants";
 
@@ -30,19 +32,26 @@ export const CarouselMain = () => {
             numScroll: 1,
         },
     ];
+    const route = useRouter();
     const templateMain = (item: CarouselMainProps) => {
         return (
             <div className={cx("container")}>
-                <h1>{item.caption}</h1>
-                <div>
-                    {item.description && <p>{item.description}</p>}
-                    {item.list ? (
-                        <ul>
-                            {item.list.map((list) => (
-                                <li key={list}>{list}</li>
-                            ))}
-                        </ul>
-                    ) : null}
+                <div className={cx("content")}>
+                    <h1>{item.caption}</h1>
+                    <div className={cx("description")}>
+                        {item.description && <span>{item.description}</span>}
+                        {item.list ? (
+                            <div className={cx("list")}>
+                                {item.list.map((list) => (
+                                    <div key={list} className={cx("item")}>
+                                        <i className="pi pi-check" style={{ color: "#63A38B" }} />
+                                        <span>{list}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : null}
+                    </div>
+                    <Button onClick={() => route.push(item.url)} mode="green" label={item.label} />
                 </div>
             </div>
         );
