@@ -36,6 +36,9 @@
             display: flex;
             align-items: flex-end;
         }
+        @include media-max($screen-notebook){
+            height: 25%;
+        }
     }
 
     .link{

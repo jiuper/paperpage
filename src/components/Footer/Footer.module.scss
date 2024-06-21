@@ -77,4 +77,18 @@
       color: #fff;
     }
   }
+
+  @include media-max($screen-tablet){
+    .wrapper{
+      flex-direction: column;
+      gap: 50px;
+    }
+    .right{
+      flex-direction: column;
+      gap: 50px;
+    }
+    .contacts{
+      max-width: 100%;
+    }
+  }
 }

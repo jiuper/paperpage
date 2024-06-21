@@ -1,72 +1,19 @@
+import { useState } from "react";
 import cnBind from "classnames/bind";
 import Link from "next/link";
 import { Menubar } from "primereact/menubar";
-import type { MenuItem } from "primereact/menuitem";
+import { Sidebar } from "primereact/sidebar";
 
+import { items } from "@/components/Header/constants";
 import { Logo } from "@/components/Logo";
+import { Button } from "@/shared/ui/Button";
 
 import styles from "./Header.module.scss";
 
 const cx = cnBind.bind(styles);
-type HeaderProps = {
-    hidden?: boolean;
-    classNames?: string;
-};
-export const Header = ({ hidden, classNames }: HeaderProps) => {
-    const items: MenuItem[] = [
-        {
-            label: "Информация",
-            url: "/",
-        },
 
-        {
-            label: "Ассортимент",
-            items: [
-                {
-                    label: "Калька",
-                    url: "/assortment/17826f6b-14de-4815-83d8-b092c7381946",
-                },
-                {
-                    label: "Ватман в листах",
-                    url: "/assortment/870cd1ef-b2c8-4329-8deb-5793b5499674",
-                },
-                {
-                    label: "Бумага-крафт",
-                    url: "/assortment/8fa5219a-4da3-4c9e-8060-64b67bc1c0fa",
-                },
-                {
-                    label: "Подпергамент",
-                    url: "/assortment/79ea5405-125a-4f7b-82a8-e1628870d920",
-                },
-                {
-                    label: "Для упаковки жировлагосодержа-щих продуктов",
-                    url: "/assortment/ad30ecbb-6916-45e7-92d8-f266133d9891",
-                },
-            ],
-        },
-        {
-            label: "Услуги",
-
-            items: [
-                {
-                    label: "Технические виды услуг",
-                    url: "/services/1",
-                },
-                {
-                    label: "Полиграфические услуги",
-                    url: "/services/2",
-                },
-                {
-                    label: "Типографские услуги",
-                    url: "/services/3",
-                },
-            ],
-        },
-        {
-            label: "Контакты",
-            url: "/contacts",
-        },
-    ];
+export const Header = () => {
+    const [visibleRight, setVisibleRight] = useState(false);
 
     return (
         <header className={cx("header")}>
@@ -74,6 +21,10 @@ export const Header = ({ hidden, classNames }: HeaderProps) => {
                 <Logo />
                 <div className={cx("nav")}>
                     <Menubar model={items} className={cx("menu")} />
+                    <Button mode="green" icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} />
+                    <Sidebar position="right" visible={visibleRight} onHide={() => setVisibleRight(false)}>
+                        <Menubar model={items} className={cx("menu")} />
+                    </Sidebar>
                 </div>
                 <div className={cx("contacts")}>
                     <Link className={cx("email")} href="mailto:info@tpaper.ru" target="_blank">

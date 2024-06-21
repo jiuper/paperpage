@@ -1,8 +1,9 @@
 .wrapper {
   display: flex;
   align-items: center;
-  width: 359px;
+  max-width: 359px;
   gap: 14px;
+  width: 100%;
 }
 .check-box {
   border: 1px solid rgba(255, 255, 255, 0.2);

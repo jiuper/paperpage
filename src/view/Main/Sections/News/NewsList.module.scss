@@ -13,6 +13,7 @@
   line-height: 120%;
 }
 .content{
-  display: flex;
-  gap: 27px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }

@@ -27,8 +27,8 @@
   }
 }
 .items{
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 
   .item{
@@ -100,6 +100,11 @@
   }
   .hidden{
     opacity: 0;
+    @include media-max($screen-notebook){
+      &{
+        display: none;
+      }
+    }
   }
 }
 .form{
@@ -107,17 +112,18 @@
   background-size: cover;
   display: flex;
   gap: 30px;
-  padding:  0 40px;
   border-radius: 20px;
 
   .field{
-    padding-top: 60px;
+    padding:  60px 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
     color: #fff;
     font-family: "Mulish", sans-serif;
+    max-width: 732px;
+    width: 100%;
 
     h3{
       font-weight: 700;

@@ -2,9 +2,7 @@ import cnBind from "classnames/bind";
 import { useRouter } from "next/router";
 
 import type { Category } from "@/entities";
-import CARDS from "@/shared/assests/cards.png";
 import { Button } from "@/shared/ui/Button";
-import { CustomImage } from "@/shared/ui/CustomImage";
 import { ImgPreview } from "@/shared/ui/ImgPreview/ImgPreview";
 
 import styles from "./Navigation.module.scss";
@@ -73,7 +71,10 @@ export const Navigation = ({ category }: NavigationProps) => {
                                         {paper.applicationSphere?.map((sphere, index) =>
                                             sphere ? (
                                                 <div key={index} className={cx("point")}>
-                                                    <i className={cx("icon", "pi pi-check")} style={{ color: "#63A38B" }} />
+                                                    <i
+                                                        className={cx("icon", "pi pi-check")}
+                                                        style={{ color: "#63A38B" }}
+                                                    />
                                                     <span>{sphere}</span>
                                                 </div>
                                             ) : null,
@@ -100,7 +101,6 @@ export const Navigation = ({ category }: NavigationProps) => {
                         </span>
                         <Button className={cx("button")} mode="white" label="Скачать прайс-лист (pdf)" />
                     </div>
-                    <CustomImage src={CARDS} alt="forms" />
                 </div>
             </div>
         </div>

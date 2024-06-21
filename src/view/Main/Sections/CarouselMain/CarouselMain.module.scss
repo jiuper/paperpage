@@ -32,6 +32,15 @@
     font-size: 22px;
     line-height: 150%;
   }
+
+  @include media-max($screen-notebook){
+    &{
+      margin-top: 40px;
+      h1{
+        font-size: 38px;
+      }
+    }
+  }
 }
 .list{
   display: flex;
@@ -89,5 +98,12 @@
     height: 54px;
     border: 1px solid #fff;
     position: absolute;
+  }
+
+  @include media-max($screen-notebook){
+    [data-pc-section="previousbutton"],
+    [data-pc-section="nextbutton"]{
+      display: none;
+    }
   }
 }

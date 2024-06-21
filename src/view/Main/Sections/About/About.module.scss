@@ -16,6 +16,7 @@
 
   .image{
     border-radius: 20px;
+    object-fit: cover;
   }
 
   .text{
@@ -44,7 +45,14 @@
       color: #5F5F5F;
     }
   }
-
+  @include media-max($screen-notebook){
+    &{
+      flex-direction: column;
+      .image{
+        width: 100%;
+      }
+    }
+  }
 }
 
 .bottom{
@@ -81,4 +89,6 @@
       width: 100%;
     }
   }
+
+
 }

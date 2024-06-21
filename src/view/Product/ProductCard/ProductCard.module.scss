@@ -8,6 +8,11 @@
   display: flex;
   justify-content: space-between;
   gap: 30px;
+  @include media-max($screen-notebook){
+    &{
+      flex-direction: column;
+    }
+  }
 }
 .carousel{
   [data-pc-section="container"]{
@@ -37,6 +42,12 @@
     height: 54px;
     border: 1px solid #fff;
     position: absolute;
+  }
+  @include media-max($screen-notebook){
+    [data-pc-section="previousbutton"],
+    [data-pc-section="nextbutton"]{
+      display: none;
+    }
   }
 }
 .image{
@@ -87,6 +98,11 @@
     .buttons{
       display: flex;
       gap: 20px;
+    }
+    @include media-max($screen-notebook){
+      .buttons{
+        flex-direction: column;
+      }
     }
   }
 }
