@@ -8,7 +8,8 @@ const cx = cnBind.bind(styles);
 type TextFieldProps = InputTextProps & {
     className?: string;
     mode?: "dark" | "light";
+    error?: boolean;
 };
-export const TextField = ({ className, mode = "dark", ...props }: TextFieldProps) => {
-    return <InputText className={cx("text-field", className, mode)} {...props} />;
+export const TextField = ({ className, mode = "dark", error = false, ...props }: TextFieldProps) => {
+    return <InputText className={cx("text-field", className, mode, { error })} {...props} />;
 };

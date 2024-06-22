@@ -32,10 +32,29 @@
     flex-wrap: wrap;
     gap: 14px;
 
+
+  }
+  .field-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    span{
+      font-family: Mulish, sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 140%;
+      color: #f06969;
+    }
+
     @include media-max($screen-tablet){
-      input{
+      &{
         width: 100%;
+        input{
+          width: 100%;
+        }
       }
+
     }
   }
   .textarea{
@@ -44,6 +63,7 @@
     padding: 18px 26px;
     background: #404146;
     height: 99px;
+    color: #fff;
     &::placeholder{
       color: #BDBDBD;
     }

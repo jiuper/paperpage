@@ -1,7 +1,8 @@
-import { useState } from "react";
 import cnBind from "classnames/bind";
+import { useFormik } from "formik";
 import Link from "next/link";
 import { InputTextarea } from "primereact/inputtextarea";
+import * as Yup from "yup";
 
 import { Button } from "@/shared/ui/Button";
 import { CheckBox } from "@/shared/ui/CheckBox";
@@ -10,31 +11,113 @@ import { TextField } from "@/shared/ui/TextField";
 import styles from "./FormMain.module.scss";
 
 const cx = cnBind.bind(styles);
-
+const SignupSchema = Yup.object().shape({
+    name: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
+});
 export const FormMain = () => {
-    const [checked, setChecked] = useState(false);
-    const handleChange = () => setChecked(!checked);
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            phone: "",
+            email: "",
+            question: "",
+            isPolicy: false,
+        },
+        onSubmit: (values) => {
+            console.log(values);
+            formik.resetForm();
+        },
+        validationSchema: { SignupSchema },
+
+        // const errors = { name: values.name, phone: values.phone, email: values.email };
+        //
+        // if (!values.name) {
+        //     errors.name = "Required";
+        // } else {
+        //     errors.name = "";
+        // }
+        //
+        // if (!values.phone) {
+        //     errors.phone = "Required";
+        // } else if (!/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(values.phone)) {
+        //     errors.phone = "Invalid phone";
+        // } else {
+        //     errors.phone = "";
+        // }
+        //
+        // if (!values.email) {
+        //     errors.email = "Required";
+        // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        //     errors.email = "Invalid email address";
+        // } else {
+        //     errors.email = "";
+        // }
+        //
+        // return errors;
+    });
 
     return (
         <div className={cx("form-main")}>
-            <div className={cx("field")}>
+            <form onSubmit={formik.handleSubmit} className={cx("field")}>
                 <h2 className={cx("title")}>Консультация по нашей продукции и услугам</h2>
                 <div className={cx("field-base")}>
                     <div className={cx("inputs")}>
-                        <TextField type="text" placeholder="Ваше имя" />
-                        <TextField type="text" placeholder="+7 (___) ___ ____" />
-                        <TextField type="text" placeholder="Ваш email" />
+                        <div className={cx("field-item")}>
+                            {formik.errors.name && formik.touched.name && <span>{formik.errors.name}</span>}
+                            <TextField
+                                value={formik.values.name}
+                                name="name"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                type="text"
+                                placeholder="Ваше имя"
+                                error={!!(formik.errors.name && formik.touched.name)}
+                            />
+                        </div>
+                        <div className={cx("field-item")}>
+                            {formik.errors.phone && formik.touched.phone && <span>{formik.errors.phone}</span>}
+                            <TextField
+                                value={formik.values.phone}
+                                name="phone"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                type="text"
+                                placeholder="+7 (___) ___ ____"
+                                error={!!(formik.errors.phone && formik.touched.phone)}
+                            />
+                        </div>
+                        <div className={cx("field-item")}>
+                            {formik.errors.email && formik.touched.email ? <span>{formik.errors.email}</span> : null}
+                            <TextField
+                                value={formik.values.email}
+                                name="email"
+                                onBlur={formik.handleBlur}
+                                onChange={formik.handleChange}
+                                type="text"
+                                placeholder="Ваш email"
+                                error={!!(formik.errors.email && formik.touched.email)}
+                            />
+                        </div>
                     </div>
 
-                    <InputTextarea autoResize className={cx("textarea")} placeholder="Ваш вопрос" />
+                    <InputTextarea
+                        value={formik.values.question}
+                        name="question"
+                        onChange={formik.handleChange}
+                        autoResize
+                        className={cx("textarea")}
+                        placeholder="Ваш вопрос"
+                    />
                 </div>
                 <div className={cx("buttons")}>
                     <CheckBox
-                        checked={checked}
-                        onChange={handleChange}
+                        checked={formik.values.isPolicy}
+                        onChange={formik.handleChange}
+                        name="isPolicy"
                         title="Согласие на обработку персональных данных и данных об абонентах"
                     />
-                    <Button mode="green" label="Отправить" />
+                    <Button type="submit" mode="green" label="Отправить" />
                 </div>
                 <div className={cx("info")}>
                     <div className={cx("text")}>
@@ -84,7 +167,7 @@ export const FormMain = () => {
                         Работаем ПН-ПТ <span className={cx("bold")}>с 9:00 до 18:00</span>
                     </p>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

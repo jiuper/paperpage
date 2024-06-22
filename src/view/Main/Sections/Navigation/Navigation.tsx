@@ -18,6 +18,7 @@ export const Navigation = ({ category }: NavigationProps) => {
                   name: "",
                   applicationSphere: [],
                   id: "",
+                  weights: [],
               })
             : category[1].papers;
 

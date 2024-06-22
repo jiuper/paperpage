@@ -16,6 +16,7 @@ export type GetPaperDto = {
     applicationSphere: string[];
     categoryId?: string;
     picture?: Buffer;
+    weights: number[];
 };
 
 export type GetCargoDto = {

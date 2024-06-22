@@ -7,12 +7,10 @@ import { Assortment } from "@/view";
 export default function IndexPage({
     cargo,
     paper,
-    weights,
     id,
 }: {
     cargo: GetCargoDto[];
     paper: GetPaperDto[];
-    weights: number[];
     id: string;
 }) {
     return <Assortment paperId={id} paper={paper} cargo={cargo} />;
@@ -36,17 +34,15 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext)
 
     const resGargo = await axios<GetCargoDto[]>("https://papers-api-4meo.onrender.com/cargo");
     const resPaper = await axios<GetPaperDto[]>("https://papers-api-4meo.onrender.com/paper");
-    // const resWeights = await axios(`https://papers-api-4meo.onrender.com/paper/cargo/weights${paperId}`);
+
 
     const cargo = resGargo.data;
     const paper = resPaper.data;
-    const weights: never[] = [];
 
     return {
         props: {
             cargo,
             paper,
-            weights,
             id,
         },
     };

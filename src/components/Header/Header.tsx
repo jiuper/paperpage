@@ -3,6 +3,7 @@ import cnBind from "classnames/bind";
 import Link from "next/link";
 import { Menubar } from "primereact/menubar";
 import type { MenuItem } from "primereact/menuitem";
+import { PanelMenu } from "primereact/panelmenu";
 import { Sidebar } from "primereact/sidebar";
 
 import { Logo } from "@/components/Logo";
@@ -74,12 +75,33 @@ export const Header = () => {
                 <Logo />
                 <div className={cx("nav")}>
                     <Menubar model={items} className={cx("menu")} />
-                    <Button mode="green" icon="pi pi-arrow-left" onClick={() => setVisibleRight(true)} />
-                    <Sidebar position="right" visible={visibleRight} onHide={() => setVisibleRight(false)}>
-                        <Menubar model={items} className={cx("menu")} />
+                    <Button
+                        className={cx("sidebar-button")}
+                        mode="white"
+                        icon="pi pi-bars"
+                        onClick={() => setVisibleRight(true)}
+                    />
+                    <Sidebar
+                        className={cx("sidebar")}
+                        position="right"
+                        visible={visibleRight}
+                        onHide={() => setVisibleRight(false)}
+                    >
+                        <PanelMenu
+                            model={items}
+                            className={cx("panel-menu")}
+                        />
+                        <div className={cx("contacts")}>
+                            <Link className={cx("email")} href="mailto:info@tpaper.ru" target="_blank">
+                                info@tpaper.ru
+                            </Link>
+                            <Link className={cx("phone")} href="tel:+78122441037" target="_blank">
+                                +7 (812) 244-10-37
+                            </Link>
+                        </div>
                     </Sidebar>
                 </div>
-                <div className={cx("contacts")}>
+                <div className={cx("contacts", "mobile")}>
                     <Link className={cx("email")} href="mailto:info@tpaper.ru" target="_blank">
                         info@tpaper.ru
                     </Link>
