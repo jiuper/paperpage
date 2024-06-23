@@ -27,7 +27,7 @@ export const Admin = ({ paper, category, news, cargo }: PropsType) => {
                     <h1>Админ панель</h1>
                     <Dropdown
                         value={selectedId}
-                        onChange={(e) => setSelectedId(e.value)}
+                        onChange={(e) => setSelectedId(e.value as string)}
                         options={[{ name: "create" }, { name: "edit" }]}
                         optionLabel="name"
                         optionValue="name"

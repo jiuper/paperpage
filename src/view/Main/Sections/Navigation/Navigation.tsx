@@ -21,13 +21,13 @@ export const Navigation = ({ category }: NavigationProps) => {
                   weights: [],
               })
             : category[1].papers;
-    console.log(category);
+
     return (
         <div className={cx("navigation")} id="assortiment">
             <div className={cx("wrapper", "container")}>
                 <div className={cx("content")}>
                     {category.map((el) => (
-                        <div className={cx("top")}>
+                        <div key={el.id} className={cx("top")}>
                             <h2>{el.name}</h2>
                             <div className={cx("items")}>
                                 {el.papers?.map((paper, i) => (

@@ -111,7 +111,7 @@ export const AdminPaper = ({ category, paper, isEdit }: Props) => {
                 <Dropdown
                     value={selectedId}
                     onChange={(e) => {
-                        isEdit ? handleChangeEdit(e.value) : setSelectedId(e.value);
+                        isEdit ? handleChangeEdit(e.value as string) : setSelectedId(e.value as string);
                     }}
                     options={isEdit ? paper : category}
                     optionLabel="name"

@@ -5,7 +5,7 @@ import cnBind from "classnames/bind";
 import { FormProduct } from "@/components/_Forms/FormProduct";
 import { ModalCallback } from "@/components/_Modals/ModalCallback";
 import { ModalOrder } from "@/components/_Modals/ModalOrder";
-import { type GetCargoDto, GetPaperDto } from "@/entities";
+import { type GetCargoDto } from "@/entities";
 import { PageLayout } from "@/layouts/PageLayout";
 import { useBooleanState } from "@/shared/hooks";
 import { AssortCards } from "@/view/Assortment/AssortCards";
@@ -18,10 +18,8 @@ type ProductProps = {
     id: string;
     paperId: string;
     cargo: GetCargoDto[];
-
 };
 export const Product = ({ cargo, paperId, id }: ProductProps) => {
-    console.log(id, paperId);
     const product = useMemo(() => cargo.filter((el) => el.paperId === paperId), [cargo, paperId]);
     const [isOpenOrder, onOpenOrder, onCloseOrder] = useBooleanState(false);
     const [isOpen, onOpen, onClose] = useBooleanState(false);
@@ -34,7 +32,11 @@ export const Product = ({ cargo, paperId, id }: ProductProps) => {
     return (
         <PageLayout>
             <div className={cx("product", "container")}>
-                <ProductCard handleCallback={onOpen} handleOrder={handleOrder} product={product.filter(el => el.id === id)[0]} />
+                <ProductCard
+                    handleCallback={onOpen}
+                    handleOrder={handleOrder}
+                    product={product.filter((el) => el.id === id)[0]}
+                />
                 <AssortCards
                     handleOrder={handleOrder}
                     title="Похожая продукция"

@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as React from "react";
 import axios from "axios";
 import cnBind from "classnames/bind";
+import { useRouter } from "next/router";
 import { Dropdown } from "primereact/dropdown";
 
 import type { Category } from "@/entities";
@@ -9,12 +10,11 @@ import { Button } from "@/shared/ui/Button";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "../Admin.module.scss";
-import { useRouter } from "next/router";
 
 const cx = cnBind.bind(styles);
 
 export const AdminCategory = ({ isEdit, category }: { isEdit: boolean; category: Category[] }) => {
-    const router = useRouter()
+    const router = useRouter();
     const [selectedId, setSelectedId] = useState<string>("");
     const [value, setValue] = useState<string>("");
     const onSubmit = () => {
@@ -32,7 +32,7 @@ export const AdminCategory = ({ isEdit, category }: { isEdit: boolean; category:
                 })
                 .then((res) => (res.status === 201 ? alert("Категория добавлена") : alert("Категория уже существует")));
         }
-        router.reload()
+        void router.reload();
         setValue("");
     };
     const handleChange = (str: string) => {
@@ -47,7 +47,7 @@ export const AdminCategory = ({ isEdit, category }: { isEdit: boolean; category:
                 {isEdit && (
                     <Dropdown
                         value={selectedId}
-                        onChange={(e) => handleChange(e.value)}
+                        onChange={(e) => handleChange(e.value as string)}
                         options={category}
                         optionLabel="name"
                         optionValue="id"

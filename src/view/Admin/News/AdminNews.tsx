@@ -61,7 +61,7 @@ export const AdminNews = ({ news, isEdit }: Props) => {
         }
 
         setValue({ title: "", description: "", file: null });
-        router.reload();
+        void router.reload()
     };
 
     const handleChangeEdit = (str: string) => {
@@ -78,7 +78,7 @@ export const AdminNews = ({ news, isEdit }: Props) => {
                 {isEdit && (
                     <Dropdown
                         value={selectedId}
-                        onChange={(e) => handleChangeEdit(e.value)}
+                        onChange={(e) => handleChangeEdit(e.value as string)}
                         options={news}
                         optionLabel="title"
                         optionValue="id"

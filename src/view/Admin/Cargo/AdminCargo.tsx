@@ -90,6 +90,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
             packagingType: "",
         });
         setFiles([]);
+        void router.reload()
     };
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
@@ -123,7 +124,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
                 <Dropdown
                     value={selectedId}
                     onChange={(e) => {
-                        isEdit ? handleChangeEdit(e.value) : setSelectedId(e.value);
+                        isEdit ? handleChangeEdit(e.value as string) : setSelectedId(e.value as string);
                     }}
                     options={isEdit ? cargo : paper}
                     optionLabel={isEdit ? "title" : "name"}
@@ -149,6 +150,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
                     <div className={cx("preview-container")}>
                         {data[0].pictures.map((el) => (
                             <CustomImage
+                                key={el}
                                 width={400}
                                 height={250}
                                 className={cx("image")}
