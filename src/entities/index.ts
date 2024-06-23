@@ -22,10 +22,10 @@ export type GetPaperDto = {
 export type GetCargoDto = {
     id: string;
     title?: string;
-    weight?: number;
+    weight: string;
     shortDescription?: string;
     articleNumber?: string;
-    packageQuantity?: number;
+    packageQuantity?: string;
     description?: string;
     price?: string;
     width?: string;

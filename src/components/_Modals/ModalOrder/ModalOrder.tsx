@@ -1,7 +1,9 @@
-import { useState } from "react";
 import cnBind from "classnames/bind";
+import { useFormik } from "formik";
 import { InputNumber } from "primereact/inputnumber";
+import * as Yup from "yup";
 
+import { phoneRegExp } from "@/components/_Modals/ModalCallback";
 import { Button } from "@/shared/ui/Button";
 import { CheckBox } from "@/shared/ui/CheckBox";
 import { Modal } from "@/shared/ui/Modal";
@@ -16,7 +18,22 @@ type ModalOrderProps = {
     title?: string;
 };
 export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
-    const [value, setValue] = useState(50);
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            phone: "",
+            isPolicy: false,
+            current: 1,
+        },
+        onSubmit: (values) => {
+            console.log(values);
+            formik.resetForm();
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required(),
+            phone: Yup.string().matches(phoneRegExp, "Неверный формат номера").required("Обязательное поле"),
+        }),
+    });
 
     return (
         <Modal
@@ -32,13 +49,33 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
                 </div>
                 <div className={cx("fields")}>
                     <div className={cx("inputs")}>
-                        <TextField className={cx("item")} mode="light" placeholder="Ваше имя" />
-                        <TextField className={cx("item")} mode="light" placeholder="+7 (___) ___ ____" />
+                        <TextField
+                            value={formik.values.name}
+                            name="name"
+                            onChange={formik.handleChange}
+                            className={cx("item")}
+                            onBlur={formik.handleBlur}
+                            type="text"
+                            placeholder="Ваше имя"
+                            mode="light"
+                            error={!!(formik.errors.name && formik.touched.name)}
+                        />
+                        <TextField
+                            mode="light"
+                            value={formik.values.phone}
+                            className={cx("item")}
+                            name="phone"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            type="text"
+                            placeholder="+7 (___) ___ ____"
+                            error={!!(formik.errors.phone && formik.touched.phone)}
+                        />
                     </div>
                     <InputNumber
                         className={cx("item-number")}
-                        value={value}
-                        onValueChange={(e) => setValue(e.value as number)}
+                        value={formik.values.current}
+                        onValueChange={(e) => formik.setFieldValue("current", e.value as number)}
                         buttonLayout="horizontal"
                         showButtons
                         decrementButtonClassName={cx("p-button-secondary")}
@@ -49,8 +86,10 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
                 </div>
                 <div className={cx("footer")}>
                     <CheckBox
-                        checked={false}
                         mode="light"
+                        checked={formik.values.isPolicy}
+                        onChange={formik.handleChange}
+                        name="isPolicy"
                         classNameContainer={cx("policy")}
                         classNameLabel={cx("title")}
                         title="Согласие на обработку персональных данных и данных об абонентах "

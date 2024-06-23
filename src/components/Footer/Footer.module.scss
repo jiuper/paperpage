@@ -76,6 +76,9 @@
       line-height: 160%;
       color: #fff;
     }
+    .author{
+      color: #63A38B;
+    }
   }
 
   @include media-max($screen-tablet){

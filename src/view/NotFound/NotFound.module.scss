@@ -1,13 +1,39 @@
 .not-found{
   background: url("../../shared/assests/notFound.png") no-repeat center center;
   background-size: cover;
-  height: 100%;
+  height: 720px;
   width: 100%;
   display: flex;
+  margin-top: 30px;
   justify-content: center;
   align-items: center;
-
-  button{
-    margin-top: 450px;
+  flex-direction: column;
+  font-family: "Mulish", sans-serif;
+  .title{
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 120%;
+    color: #1d1d1b;
+  }
+  h1{
+    font-weight: 700;
+    font-size: 300px;
+    line-height: 90%;
+    color: #666;
+  }
+  p{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    color: #666;
+  }
+ @include media-max($screen-notebook){
+    .title{
+      font-size: 30px;
+    }
+    h1{
+      font-size: 150px;
+    }
   }
 }

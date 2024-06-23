@@ -23,6 +23,11 @@
     .item{
       width: 100% !important;
     }
+    @include media-max($screen-tablet){
+      &{
+        flex-direction: column;
+      }
+    }
   }
   .item-number{
     &[data-pc-name="inputnumber"]{

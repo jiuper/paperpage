@@ -1,0 +1,128 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding: 25px 24px;
+}
+.header{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.add-category{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: flex-start;
+  .form-category{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.add-paper{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: flex-start;
+
+  .form-paper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .share{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .file,
+      .share-info{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .share-item{
+          background: #F1F8F5;
+          border-radius: 5px;
+          padding: 5px;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 160%;
+          color: #828282;
+        }
+      }
+      .file{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    .dropdown,
+    button{
+      width: 250px;
+    }
+  }
+}
+
+.add-cargo{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: flex-start;
+  .form-cargo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .file{
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+.add-news{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid #BDBDBD;
+  padding: 15px;
+  border-radius: 20px;
+  align-items: flex-start;
+  .form-news{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .file{
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+.preview-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  .preview{
+    width: 100px !important;
+    height: 100px !important;
+    position: relative !important;
+    border: 1px solid #BDBDBD;
+    padding: 8px;
+  }
+  .preview-info{
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -43,7 +43,9 @@
     "prettier": "^2.8.8",
     "sass": "^1.71.1",
     "typescript": "^5",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "http-proxy-middleware": "^2.0.6",
+    "next-http-proxy-middleware": "^1.2.6"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >=16.0.0"

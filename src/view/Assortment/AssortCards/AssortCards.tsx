@@ -1,4 +1,3 @@
-import { useState } from "react";
 import cnBind from "classnames/bind";
 import { useRouter } from "next/router";
 import { Column } from "primereact/column";
@@ -60,7 +59,7 @@ export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => 
                     <Column
                         key={col.field}
                         field={col.field}
-                        body={col.Body ?(data: GetCargoDto, { field }) => col.Body?.(data, field) : null}
+                        body={col.Body ? (data: GetCargoDto, { field }) => col.Body?.(data, field) : null}
                         header={col.header}
                     />
                 ))}

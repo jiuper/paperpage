@@ -1,0 +1,1 @@
+export const API_BASE = "https://papers-api-4meo.onrender.com/category"

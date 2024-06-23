@@ -31,7 +31,8 @@ export const Assortment = ({ cargo, paper, paperId }: AssortmentProps) => {
         setChooseProduct(val);
         onOpenOrder();
     };
-
+    console.log(filterCargo.filter((el) => el.weight?.toString() === filterPaper[0].weights[0]?.toString()));
+    console.log(filterCargo[1]?.title);
     return (
         <PageLayout>
             <div className={cx("assortment")} id="assortiment">
@@ -42,8 +43,8 @@ export const Assortment = ({ cargo, paper, paperId }: AssortmentProps) => {
                         <AssortCards
                             handleOrder={handleOrder}
                             key={weight}
-                            title={cargo[i].title ?? ""}
-                            cargo={filterCargo.filter((el) => el.weight === weight)}
+                            title={filterCargo.filter((el) => el.weight?.toString() === weight.toString())[0].title ?? ""}
+                            cargo={filterCargo.filter((el) => el.weight?.toString() === weight.toString())}
                         />
                     ))}
                 </div>

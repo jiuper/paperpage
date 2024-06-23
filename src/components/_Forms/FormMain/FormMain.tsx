@@ -4,6 +4,7 @@ import Link from "next/link";
 import { InputTextarea } from "primereact/inputtextarea";
 import * as Yup from "yup";
 
+import { phoneRegExp } from "@/components/_Modals/ModalCallback";
 import { Button } from "@/shared/ui/Button";
 import { CheckBox } from "@/shared/ui/CheckBox";
 import { TextField } from "@/shared/ui/TextField";
@@ -11,10 +12,7 @@ import { TextField } from "@/shared/ui/TextField";
 import styles from "./FormMain.module.scss";
 
 const cx = cnBind.bind(styles);
-const SignupSchema = Yup.object().shape({
-    name: Yup.string().required("Required"),
-    email: Yup.string().required("Required"),
-});
+
 export const FormMain = () => {
     const formik = useFormik({
         initialValues: {
@@ -28,33 +26,11 @@ export const FormMain = () => {
             console.log(values);
             formik.resetForm();
         },
-        validationSchema: { SignupSchema },
-
-        // const errors = { name: values.name, phone: values.phone, email: values.email };
-        //
-        // if (!values.name) {
-        //     errors.name = "Required";
-        // } else {
-        //     errors.name = "";
-        // }
-        //
-        // if (!values.phone) {
-        //     errors.phone = "Required";
-        // } else if (!/^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/.test(values.phone)) {
-        //     errors.phone = "Invalid phone";
-        // } else {
-        //     errors.phone = "";
-        // }
-        //
-        // if (!values.email) {
-        //     errors.email = "Required";
-        // } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        //     errors.email = "Invalid email address";
-        // } else {
-        //     errors.email = "";
-        // }
-        //
-        // return errors;
+        validationSchema: Yup.object({
+            name: Yup.string().required(),
+            email: Yup.string().email("Неверный формат email").required("Обязательное поле"),
+            phone: Yup.string().matches(phoneRegExp, "Неверный формат номера").required("Обязательное поле"),
+        }),
     });
 
     return (

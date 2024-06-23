@@ -1,3 +1,4 @@
+export { Admin } from "./Admin/index";
 export { Assortment } from "./Assortment/index";
 export { Contacts } from "./Contacts/index";
 export { Main } from "./Main/index";
