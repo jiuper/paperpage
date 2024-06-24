@@ -51,12 +51,17 @@ export const Footer = () => {
                             без №, стр. литера К
                         </p>
                         <p className={cx("gps")}>GPS: N59°46.374 E30°42.993</p>
-                        <span className={cx("gps")}>Разработка сайта - <strong className={cx("author")}>Левша</strong></span>
+                        <div className={cx("gps")}>
+                            Разработка сайта -
+                            <Link className={cx("author")} target="_blank" href="https://levsha-web.ru">
+                                {" "}
+                                Левша
+                            </Link>
+                        </div>
                     </div>
-
                 </div>
             </div>
-            <ModalCallback isOpen={isOpen} onClose={onClose} />
+            <ModalCallback title="Написать руководителю" isOpen={isOpen} onClose={onClose} />
         </footer>
     );
 };

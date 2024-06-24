@@ -9,12 +9,11 @@
     color: #000;
     margin-bottom: 10px;
   }
-  .map{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+
+  .cn-left {
+    padding-top: 50px;
     width: 100%;
-    object-fit: cover;
+    height: 400px;
   }
   .contacts{
     display: flex;

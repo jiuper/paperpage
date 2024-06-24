@@ -1,8 +1,7 @@
+import { Map, Placemark, TypeSelector, YMaps, ZoomControl } from "@pbe/react-yandex-maps";
 import cnBind from "classnames/bind";
 
 import { FormMain } from "@/components/_Forms/FormMain";
-import MAP from "@/shared/assests/map.png";
-import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./Location.module.scss";
 
@@ -32,7 +31,21 @@ export const Location = () => {
                             <span className={cx("gps")}>GPS: N59°46.374 E30°42.993</span>
                         </div>
                     </div>
-                    <CustomImage alt="map" src={MAP} className={cx("map")} />
+                    <YMaps enterprise query={{ apikey: "afef66c1-8caa-48c3-b88d-a01c82578b02" }}>
+                        <Map
+                            onLoad={() => {}}
+                            instanceRef={(ref) => {
+                                // eslint-disable-next-line no-unused-expressions
+                                ref && ref.behaviors.disable("scrollZoom");
+                            }}
+                            className={cx("cn-left")}
+                            defaultState={{ center: [59.46374, 30.42993], zoom: 11 }}
+                        >
+                            <Placemark geometry={[59.46374, 30.42993]} />
+                            <ZoomControl />
+                            <TypeSelector />
+                        </Map>
+                    </YMaps>
                 </div>
             </div>
 
