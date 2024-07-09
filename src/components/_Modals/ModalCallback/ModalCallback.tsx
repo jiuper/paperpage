@@ -24,8 +24,11 @@ export const ModalCallback = ({ onClose, isOpen, title = "Обратный зв�
             phone: "",
             isPolicy: false,
         },
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            await fetch("https://papers-api-4meo.onrender.com/mail", {
+                method: "post",
+                body: JSON.stringify(values),
+            }).then((res) => res.ok);
             formik.resetForm();
         },
         validationSchema: Yup.object({
@@ -36,7 +39,7 @@ export const ModalCallback = ({ onClose, isOpen, title = "Обратный зв�
 
     return (
         <Modal maxWidth="421px" className={cx("modal")} isOpen={isOpen} hasHeader={title} onClose={onClose}>
-            <div className={cx("wrapper")}>
+            <form onSubmit={formik.handleSubmit} className={cx("wrapper")}>
                 <div className={cx("title")}>
                     <span>Заполните форму и мы свяжемся с вами</span>
                 </div>
@@ -58,7 +61,7 @@ export const ModalCallback = ({ onClose, isOpen, title = "Обратный зв�
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         type="text"
-                        placeholder="+7 (___) ___ ____"
+                        placeholder="7 (___) ___ ____"
                         error={!!(formik.errors.phone && formik.touched.phone)}
                     />
                 </div>
@@ -71,9 +74,9 @@ export const ModalCallback = ({ onClose, isOpen, title = "Обратный зв�
                         mode="light"
                         title="Согласие на обработку персональных данных и данных об абонентах "
                     />
-                    <Button mode="green" label="Отправить" />
+                    <Button type="submit" disabled={!formik.values.isPolicy} mode="green" label="Отправить" />
                 </div>
-            </div>
+            </form>
         </Modal>
     );
 };

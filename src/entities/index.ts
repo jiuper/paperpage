@@ -17,6 +17,7 @@ export type GetPaperDto = {
     categoryId?: string;
     picture?: Buffer;
     weights: number[];
+    footnote?: string;
 };
 
 export type GetCargoDto = {

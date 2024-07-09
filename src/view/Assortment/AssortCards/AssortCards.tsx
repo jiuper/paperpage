@@ -37,7 +37,6 @@ export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => 
         { field: "0", header: "Фото", Body: imageTemplate },
         { field: "1", header: "Фактура", Body: imageTemplate },
         { field: "shortDescription", header: "Описание" },
-        { field: "articleNumber", header: "Артикул" },
         { field: "packageQuantity", header: "Кол-во в упаковке" },
         { header: "", Body: searchBodyTemplate },
     ];

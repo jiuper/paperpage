@@ -48,6 +48,7 @@ export const Assortment = ({ cargo, paper, paperId }: AssortmentProps) => {
                             cargo={filterCargo.filter((el) => el.weight?.toString() === weight.toString())}
                         />
                     ))}
+                    <p>* {filterPaper[0].footnote}</p>
                 </div>
                 <div className={cx("form", "container")}>
                     <FormMain />

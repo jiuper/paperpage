@@ -25,8 +25,11 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
             isPolicy: false,
             current: 1,
         },
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            await fetch("https://papers-api-4meo.onrender.com/mail", {
+                method: "post",
+                body: JSON.stringify(values),
+            }).then((res) => res.ok);
             formik.resetForm();
         },
         validationSchema: Yup.object({
@@ -43,7 +46,7 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
             isOpen={isOpen}
             onClose={onClose}
         >
-            <div className={cx("wrapper")}>
+            <form onSubmit={formik.handleSubmit} className={cx("wrapper")}>
                 <div className={cx("title")}>
                     <span>{title}</span>
                 </div>
@@ -94,9 +97,15 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
                         classNameLabel={cx("title")}
                         title="Согласие на обработку персональных данных и данных об абонентах "
                     />
-                    <Button className={cx("submit")} mode="green" label="Отправить" />
+                    <Button
+                        type="submit"
+                        disabled={!formik.values.isPolicy}
+                        className={cx("submit")}
+                        mode="green"
+                        label="Отправить"
+                    />
                 </div>
-            </div>
+            </form>
         </Modal>
     );
 };

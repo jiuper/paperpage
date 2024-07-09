@@ -95,10 +95,10 @@ export const ProductCard = ({ product, handleOrder, handleCallback }: ProductCar
                     </div>
                 </div>
             </div>
-            <div className={cx("description")}>
-                <span>Описание</span>
-                <p>{product.description}</p>
-            </div>
+            {/* <div className={cx("description")}> */}
+            {/*     <span>Описание</span> */}
+            {/*     <p>{product.description}</p> */}
+            {/* </div> */}
         </div>
     );
 };

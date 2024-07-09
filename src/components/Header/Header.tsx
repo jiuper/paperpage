@@ -41,6 +41,10 @@ const items: MenuItem[] = [
                 label: "Для упаковки жировлагосодержа-щих продуктов",
                 url: "/assortment/ad30ecbb-6916-45e7-92d8-f266133d9891",
             },
+            {
+                label: "Бумага мастштабно-координатная",
+                url: "/assortment/de87b9b5-8fbb-4c33-8655-2e0d49292a5f",
+            },
         ],
     },
     {
@@ -87,10 +91,7 @@ export const Header = () => {
                         visible={visibleRight}
                         onHide={() => setVisibleRight(false)}
                     >
-                        <PanelMenu
-                            model={items}
-                            className={cx("panel-menu")}
-                        />
+                        <PanelMenu model={items} className={cx("panel-menu")} />
                         <div className={cx("contacts")}>
                             <Link className={cx("email")} href="mailto:info@tpaper.ru" target="_blank">
                                 info@tpaper.ru

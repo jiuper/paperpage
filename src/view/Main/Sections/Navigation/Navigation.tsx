@@ -21,6 +21,17 @@ export const Navigation = ({ category }: NavigationProps) => {
                   weights: [],
               })
             : category[1].papers;
+    const handleDownloadFile = async () => {
+        const resp = await fetch("https://papers-api-4meo.onrender.com/cargo/price", {
+            method: "get",
+        });
+        const blob = await resp.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "default.pdf";
+        link.click();
+    };
 
     return (
         <div className={cx("navigation")} id="assortiment">
@@ -70,7 +81,12 @@ export const Navigation = ({ category }: NavigationProps) => {
                                 Менеджеры компании с радостью ответят на ваши вопросы и произведут расчет стоимости
                                 заказа и подготовят индивидуальное коммерческое предложение
                             </span>
-                            <Button className={cx("button")} mode="white" label="Скачать прайс-лист (pdf)" />
+                            <Button
+                                onClick={handleDownloadFile}
+                                className={cx("button")}
+                                mode="white"
+                                label="Скачать прайс-лист (pdf)"
+                            />
                         </div>
                     </div>
                 </div>

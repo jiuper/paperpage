@@ -17,8 +17,11 @@ export const FormProduct = () => {
             phone: "",
             isPolicy: false,
         },
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values) => {
+            await fetch("https://papers-api-4meo.onrender.com/mail", {
+                method: "post",
+                body: JSON.stringify(values),
+            }).then((res) => res.ok);
             formik.resetForm();
         },
         validationSchema: Yup.object({
@@ -54,10 +57,16 @@ export const FormProduct = () => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             type="text"
-                            placeholder="+7 (___) ___ ____"
+                            placeholder="7 (___) ___ ____"
                             error={!!(formik.errors.phone && formik.touched.phone)}
                         />
-                        <Button className={cx("submit")} mode="white" label="Отправить" />
+                        <Button
+                            type="submit"
+                            disabled={!formik.values.isPolicy}
+                            className={cx("submit")}
+                            mode="white"
+                            label="Отправить"
+                        />
                     </div>
 
                     <CheckBox

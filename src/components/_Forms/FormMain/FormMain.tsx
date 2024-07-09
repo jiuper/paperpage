@@ -22,12 +22,16 @@ export const FormMain = () => {
             question: "",
             isPolicy: false,
         },
-        onSubmit: (values) => {
-            console.log(values);
+        onSubmit: async (values, { setSubmitting }) => {
+            await fetch("https://papers-api-4meo.onrender.com/mail", {
+                method: "post",
+                body: JSON.stringify(values),
+            }).then((res) => res.ok);
             formik.resetForm();
+            setSubmitting(false);
         },
         validationSchema: Yup.object({
-            name: Yup.string().required(),
+            name: Yup.string().required("Обязательное поле"),
             email: Yup.string().email("Неверный формат email").required("Обязательное поле"),
             phone: Yup.string().matches(phoneRegExp, "Неверный формат номера").required("Обязательное поле"),
         }),
@@ -59,7 +63,7 @@ export const FormMain = () => {
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
                                 type="text"
-                                placeholder="+7 (___) ___ ____"
+                                placeholder="7 (___) ___ ____"
                                 error={!!(formik.errors.phone && formik.touched.phone)}
                             />
                         </div>
@@ -93,7 +97,7 @@ export const FormMain = () => {
                         name="isPolicy"
                         title="Согласие на обработку персональных данных и данных об абонентах"
                     />
-                    <Button type="submit" mode="green" label="Отправить" />
+                    <Button disabled={!formik.values.isPolicy} type="submit" mode="green" label="Отправить" />
                 </div>
                 <div className={cx("info")}>
                     <div className={cx("text")}>
