@@ -8,6 +8,7 @@ import { Modal } from "@/shared/ui/Modal";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "./ModalCallback.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type ModalCallbackProps = {
@@ -25,7 +26,7 @@ export const ModalCallback = ({ onClose, isOpen, title = "Обратный зв�
             isPolicy: false,
         },
         onSubmit: async (values) => {
-            await fetch("https://papers-api-4meo.onrender.com/mail", {
+            await fetch(`${API_BASE}/mail`, {
                 method: "post",
                 body: JSON.stringify(values),
             }).then((res) => res.ok);

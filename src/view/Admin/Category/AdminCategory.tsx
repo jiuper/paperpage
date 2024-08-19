@@ -10,6 +10,7 @@ import { Button } from "@/shared/ui/Button";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "../Admin.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 
@@ -20,13 +21,13 @@ export const AdminCategory = ({ isEdit, category }: { isEdit: boolean; category:
     const onSubmit = () => {
         if (!isEdit) {
             void axios
-                .post("https://papers-api-4meo.onrender.com/category", {
+                .post(`${API_BASE}/category`, {
                     name: value,
                 })
                 .then((res) => (res.status === 201 ? alert("Категория добавлена") : alert("Категория уже существует")));
         } else {
             void axios
-                .put(`https://papers-api-4meo.onrender.com/category`, {
+                .put(`${API_BASE}/category`, {
                     name: value,
                     id: selectedId,
                 })

@@ -1,1 +1,1 @@
-export const API_BASE = "https://papers-api-4meo.onrender.com/category"
+export const API_BASE = process.env.NEXT_PUBLIC_ROUTES_URL_BACK || "http://localhost:3000";

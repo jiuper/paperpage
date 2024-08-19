@@ -11,6 +11,7 @@ import { CustomImage } from "@/shared/ui/CustomImage";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "../Admin.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type Props = {
@@ -47,13 +48,13 @@ export const AdminNews = ({ news, isEdit }: Props) => {
     const onSubmit = () => {
         if (!isEdit) {
             void axios
-                .postForm("https://papers-api-4meo.onrender.com/news/create", {
+                .postForm(`${API_BASE}/news/create`, {
                     ...value,
                 })
                 .then((res) => (res.status === 201 ? alert("Новость добавлена") : alert("Новость уже существует")));
         } else {
             void axios
-                .postForm("https://papers-api-4meo.onrender.com/news/update", {
+                .postForm(`${API_BASE}/news/update`, {
                     ...value,
                     id: selectedId,
                 })
@@ -110,7 +111,7 @@ export const AdminNews = ({ news, isEdit }: Props) => {
                             width={400}
                             height={250}
                             className={cx("image")}
-                            src={`https://papers-api-4meo.onrender.com/picture/${data[0].pictureId ?? "0"}`}
+                            src={`${API_BASE}/picture/${data[0].pictureId ?? "0"}`}
                             alt="deletePhoto"
                         />
                     </div>

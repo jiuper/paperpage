@@ -12,10 +12,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'papers-api-4meo.onrender.com',
-        port: '',
-        pathname: '/picture/**',
+        protocol: process.env.NEXT_PUBLIC_PROTOCOL_API,
+        hostname:"**",
+        port: "",
+        pathname: "**",
       },
     ],
   },

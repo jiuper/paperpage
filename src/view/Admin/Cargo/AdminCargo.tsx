@@ -13,6 +13,7 @@ import { inputs } from "@/view/Admin/Cargo/inputs";
 import type { CreatePaperDto } from "@/view/Admin/Paper/AdminPaper";
 
 import styles from "../Admin.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type Props = { paper: GetPaperDto[]; cargo: GetCargoDto[]; isEdit?: boolean };
@@ -45,7 +46,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
         if (!isEdit) {
             void axios
                 .postForm<CreatePaperDto>(
-                    "https://papers-api-4meo.onrender.com/cargo/create",
+                    `${API_BASE}/cargo/create`,
                     {
                         ...value,
                         paperId: selectedId,
@@ -61,7 +62,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
         } else {
             void axios
                 .postForm(
-                    "https://papers-api-4meo.onrender.com/cargo/update",
+                    `${API_BASE}/cargo/update`,
                     {
                         ...value,
                         id: selectedId,
@@ -154,7 +155,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
                                 width={400}
                                 height={250}
                                 className={cx("image")}
-                                src={`https://papers-api-4meo.onrender.com/picture/${el ?? "0"}`}
+                                src={`${API_BASE}/picture/${el ?? "0"}`}
                                 alt="deletePhoto"
                             />
                         ))}

@@ -12,6 +12,7 @@ import { ImgPreview } from "@/shared/ui/ImgPreview/ImgPreview";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "../Admin.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type Props = {
@@ -71,14 +72,14 @@ export const AdminPaper = ({ category, paper, isEdit }: Props) => {
     const onSubmit = () => {
         if (!isEdit) {
             void axios
-                .postForm<CreatePaperDto>("https://papers-api-4meo.onrender.com/paper/create", {
+                .postForm<CreatePaperDto>(`${API_BASE}/paper/create`, {
                     ...value,
                     categoryId: selectedId,
                 })
                 .then((res) => (res.status === 201 ? alert("Категория добавлена") : alert("Категория уже существует")));
         } else {
             void axios
-                .putForm<CreatePaperDto>("https://papers-api-4meo.onrender.com/paper/update", {
+                .putForm<CreatePaperDto>(`${API_BASE}/paper/update`, {
                     ...value,
                     categoryId: selectedId,
                 })

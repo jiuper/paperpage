@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./NewsCard.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type NewsCardProps = {
@@ -22,7 +23,7 @@ export const NewsCard = ({ date, title, text, src, alt, id }: NewsCardProps) => 
                 width={400}
                 height={250}
                 className={cx("image")}
-                src={`https://papers-api-4meo.onrender.com/picture/${src ?? "0"}`}
+                src={`${API_BASE}/picture/${src ?? "0"}`}
                 alt={alt}
             />
             <span>{date}</span>

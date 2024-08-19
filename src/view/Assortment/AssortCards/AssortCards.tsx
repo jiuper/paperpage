@@ -9,6 +9,7 @@ import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./AssortCards.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type AssortCardsProps = {
@@ -27,7 +28,7 @@ export const AssortCards = ({ cargo, title, handleOrder }: AssortCardsProps) => 
             <CustomImage
                 width={134}
                 height={90}
-                src={`https://papers-api-4meo.onrender.com/picture/${data.pictures[+index] ?? "0"}`}
+                src={`${API_BASE}/picture/${data.pictures[+index] ?? "0"}`}
                 alt="default"
             />
         );

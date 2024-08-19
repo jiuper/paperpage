@@ -3,6 +3,7 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next
 
 import type { GetNewsDto } from "@/entities";
 import { News } from "@/view";
+import { API_BASE } from "@/shared/constants/private";
 
 export default function IndexPage({ id, news }: { id: string; news: GetNewsDto[] }) {
     const newsSingle = news.filter((el) => el.id === id);
@@ -10,7 +11,7 @@ export default function IndexPage({ id, news }: { id: string; news: GetNewsDto[]
     return <News news={news} newsSingle={newsSingle[0]} />;
 }
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await axios<GetNewsDto[]>("https://papers-api-4meo.onrender.com/news");
+    const res = await axios<GetNewsDto[]>(`${API_BASE}/news`);
     const news = res.data;
 
     return {
@@ -26,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
     const id = ctx?.params?.id as string;
 
-    const res = await axios<GetNewsDto[]>("https://papers-api-4meo.onrender.com/news");
+    const res = await axios<GetNewsDto[]>(`${API_BASE}/news`);
     const news = res.data;
 
     return {

@@ -3,12 +3,13 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next
 
 import type { GetCargoDto, GetPaperDto } from "@/entities";
 import { Assortment } from "@/view";
+import { API_BASE } from "@/shared/constants/private";
 
 export default function IndexPage({ cargo, paper, id }: { cargo: GetCargoDto[]; paper: GetPaperDto[]; id: string }) {
     return <Assortment paperId={id} paper={paper} cargo={cargo} />;
 }
 export const getStaticPaths: GetStaticPaths = async () => {
-    const res = await axios<GetCargoDto[]>("https://papers-api-4meo.onrender.com/cargo");
+    const res = await axios<GetCargoDto[]>(`${API_BASE}/cargo`);
     const products = res.data;
 
     return {
@@ -24,8 +25,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext) => {
     const id = ctx?.params?.id as string;
 
-    const resGargo = await axios<GetCargoDto[]>("https://papers-api-4meo.onrender.com/cargo");
-    const resPaper = await axios<GetPaperDto[]>("https://papers-api-4meo.onrender.com/paper");
+    const resGargo = await axios<GetCargoDto[]>(`${API_BASE}/cargo`);
+    const resPaper = await axios<GetPaperDto[]>(`${API_BASE}/paper`);
 
     const cargo = resGargo.data;
     const paper = resPaper.data;

@@ -10,6 +10,7 @@ import { Modal } from "@/shared/ui/Modal";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "./ModalOrder.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type ModalOrderProps = {
@@ -26,7 +27,7 @@ export const ModalOrder = ({ isOpen, onClose, title }: ModalOrderProps) => {
             current: 1,
         },
         onSubmit: async (values) => {
-            await fetch("https://papers-api-4meo.onrender.com/mail", {
+            await fetch(`${API_BASE}/mail`, {
                 method: "post",
                 body: JSON.stringify(values),
             }).then((res) => res.ok);

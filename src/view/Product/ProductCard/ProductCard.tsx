@@ -6,6 +6,7 @@ import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./ProductCard.module.scss";
+import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type ProductCardProps = {
@@ -40,7 +41,7 @@ export const ProductCard = ({ product, handleOrder, handleCallback }: ProductCar
         return (
             <CustomImage
                 className={cx("image")}
-                src={`https://papers-api-4meo.onrender.com/picture/${product ?? "0"}`}
+                src={`${API_BASE}/picture/${product ?? "0"}`}
                 alt="default"
                 width={400}
                 height={500}

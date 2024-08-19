@@ -2,6 +2,7 @@ import axios from "axios";
 
 import type { Category, GetCargoDto, GetNewsDto, GetPaperDto } from "@/entities";
 import { Admin } from "@/view";
+import { API_BASE } from "@/shared/constants/private";
 
 export default function IndexPage({
     paper,
@@ -18,10 +19,10 @@ export default function IndexPage({
 }
 
 export async function getStaticProps() {
-    const resCategory = await axios<Category[]>("https://papers-api-4meo.onrender.com/category");
-    const resPaper = await axios<GetPaperDto[]>("https://papers-api-4meo.onrender.com/paper");
-    const resCargo = await axios<GetCargoDto[]>("https://papers-api-4meo.onrender.com/cargo");
-    const resNews = await axios<GetNewsDto[]>("https://papers-api-4meo.onrender.com/news");
+    const resCategory = await axios<Category[]>(`${API_BASE}/category`);
+    const resPaper = await axios<GetPaperDto[]>(`${API_BASE}/paper`);
+    const resCargo = await axios<GetCargoDto[]>(`${API_BASE}/cargo`);
+    const resNews = await axios<GetNewsDto[]>(`${API_BASE}/news`);
 
     const paper = resPaper.data;
     const category = resCategory.data;
