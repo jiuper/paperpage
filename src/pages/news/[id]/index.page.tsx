@@ -2,8 +2,8 @@ import axios from "axios";
 import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 
 import type { GetNewsDto } from "@/entities";
-import { News } from "@/view";
 import { API_BASE } from "@/shared/constants/private";
+import { News } from "@/view";
 
 export default function IndexPage({ id, news }: { id: string; news: GetNewsDto[] }) {
     const newsSingle = news.filter((el) => el.id === id);

@@ -2,8 +2,8 @@ import axios from "axios";
 import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 
 import type { GetCargoDto, GetPaperDto } from "@/entities";
-import { Assortment } from "@/view";
 import { API_BASE } from "@/shared/constants/private";
+import { Assortment } from "@/view";
 
 export default function IndexPage({ cargo, paper, id }: { cargo: GetCargoDto[]; paper: GetPaperDto[]; id: string }) {
     return <Assortment paperId={id} paper={paper} cargo={cargo} />;

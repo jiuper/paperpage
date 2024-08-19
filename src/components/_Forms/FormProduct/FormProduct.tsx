@@ -3,12 +3,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { phoneRegExp } from "@/components/_Modals/ModalCallback";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { CheckBox } from "@/shared/ui/CheckBox";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "./FormProduct.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 export const FormProduct = () => {

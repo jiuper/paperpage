@@ -2,11 +2,11 @@ import cnBind from "classnames/bind";
 import { Carousel } from "primereact/carousel";
 
 import type { GetCargoDto } from "@/entities";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./ProductCard.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type ProductCardProps = {

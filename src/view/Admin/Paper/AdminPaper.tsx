@@ -7,12 +7,12 @@ import { useRouter } from "next/router";
 import { Dropdown } from "primereact/dropdown";
 
 import type { Category, GetPaperDto } from "@/entities";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { ImgPreview } from "@/shared/ui/ImgPreview/ImgPreview";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "../Admin.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type Props = {

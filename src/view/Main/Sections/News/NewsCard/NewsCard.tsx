@@ -1,10 +1,10 @@
 import cnBind from "classnames/bind";
 import Link from "next/link";
 
+import { API_BASE } from "@/shared/constants/private";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./NewsCard.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type NewsCardProps = {

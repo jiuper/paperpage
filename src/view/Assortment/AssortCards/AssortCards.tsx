@@ -5,11 +5,11 @@ import type { DataTableSelectionSingleChangeEvent } from "primereact/datatable";
 import { DataTable } from "primereact/datatable";
 
 import type { GetCargoDto } from "@/entities";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
 
 import styles from "./AssortCards.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type AssortCardsProps = {

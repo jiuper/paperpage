@@ -4,13 +4,13 @@ import { InputNumber } from "primereact/inputnumber";
 import * as Yup from "yup";
 
 import { phoneRegExp } from "@/components/_Modals/ModalCallback";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { CheckBox } from "@/shared/ui/CheckBox";
 import { Modal } from "@/shared/ui/Modal";
 import { TextField } from "@/shared/ui/TextField";
 
 import styles from "./ModalOrder.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type ModalOrderProps = {

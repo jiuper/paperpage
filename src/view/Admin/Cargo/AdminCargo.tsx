@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Dropdown } from "primereact/dropdown";
 
 import type { GetCargoDto, GetPaperDto } from "@/entities";
+import { API_BASE } from "@/shared/constants/private";
 import { Button } from "@/shared/ui/Button";
 import { CustomImage } from "@/shared/ui/CustomImage";
 import { TextField } from "@/shared/ui/TextField";
@@ -13,7 +14,6 @@ import { inputs } from "@/view/Admin/Cargo/inputs";
 import type { CreatePaperDto } from "@/view/Admin/Paper/AdminPaper";
 
 import styles from "../Admin.module.scss";
-import { API_BASE } from "@/shared/constants/private";
 
 const cx = cnBind.bind(styles);
 type Props = { paper: GetPaperDto[]; cargo: GetCargoDto[]; isEdit?: boolean };
@@ -91,7 +91,7 @@ export const AdminCargo = ({ paper, cargo, isEdit }: Props) => {
             packagingType: "",
         });
         setFiles([]);
-        void router.reload()
+        void router.reload();
     };
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {

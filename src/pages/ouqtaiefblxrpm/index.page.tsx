@@ -1,8 +1,8 @@
 import axios from "axios";
 
 import type { Category, GetCargoDto, GetNewsDto, GetPaperDto } from "@/entities";
-import { Admin } from "@/view";
 import { API_BASE } from "@/shared/constants/private";
+import { Admin } from "@/view";
 
 export default function IndexPage({
     paper,
